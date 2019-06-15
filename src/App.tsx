@@ -20,12 +20,12 @@ const initialState: ICV = {
   nodes: [
     {
       col: Position.LEFT,
-      id: 'lll',
+      id: 'Node1',
       paragraphs: [
         {
           content: 'Left',
           height: 100,
-          id: 'ttt',
+          id: 'p1',
           left: 0,
           name: 'eee',
           style: {},
@@ -35,7 +35,33 @@ const initialState: ICV = {
         {
           content: 'Left2s',
           height: 100,
-          id: 'ttt',
+          id: 'p2',
+          left: 0,
+          name: 'fff',
+          style: {},
+          top: 0,
+          width: 200
+        }
+      ]
+    },
+    {
+      col: Position.LEFT,
+      id: 'Node2',
+      paragraphs: [
+        {
+          content: 'Left',
+          height: 100,
+          id: 'p1',
+          left: 0,
+          name: 'eee',
+          style: {},
+          top: 0,
+          width: 200
+        },
+        {
+          content: 'Left2s',
+          height: 100,
+          id: 'p2',
           left: 0,
           name: 'fff',
           style: {},
@@ -47,12 +73,12 @@ const initialState: ICV = {
 
     {
       col: Position.RIGHT,
-      id: 'rrr',
+      id: 'Node3',
       paragraphs: [
         {
           content: 'Test',
           height: 100,
-          id: 'ttt',
+          id: 'p1',
           left: 0,
           name: 'eee',
           style: {},
@@ -62,7 +88,7 @@ const initialState: ICV = {
         {
           content: 'Test2',
           height: 100,
-          id: 'ttt',
+          id: 'p2',
           left: 0,
           name: 'fff',
           style: {},

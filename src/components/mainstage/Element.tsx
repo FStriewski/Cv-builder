@@ -4,7 +4,7 @@ import { DraggableHOC, DragState } from './DraggableHOC';
 
 import Draggable from 'react-draggable';
 
-export const DraggableWrapper = () => (
+const DraggableWrapper = (props) => (
          <DragState>
            {({ dragHandlers, handleDrag }) => (
           
@@ -14,10 +14,19 @@ export const DraggableWrapper = () => (
                  onDrag={handleDrag}
                  {...dragHandlers}
                >
-                 <Element className="box">
-                   <div>Move me</div>
-                 </Element>
+                 {/* <Element className="box">
+                   <div>{content}</div>
+                 </Element> */}
+                 {props.children}
                </Draggable>
            )}
          </DragState>
        );
+
+export const Node = ({ content }) => (
+         <DraggableWrapper>
+           <Element className="box">
+             <div>{content.map(x => x.id)}</div>
+           </Element>
+         </DraggableWrapper>
+       ); 
