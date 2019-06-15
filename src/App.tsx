@@ -6,7 +6,7 @@ import MainStage from './components/mainstage/MainStage';
 import SideBar from './components/sidebar/SideBar';
 import { App as StyledApp } from './styles/App';
 import { CVState } from './data/Cvdata';
-import {ICV} from './types';
+import { ICV, Position } from './types';
 
 // Shall be provided by API
 const initialState: ICV = {
@@ -14,35 +14,65 @@ const initialState: ICV = {
     email: 'email',
     firstName: 'first',
     phone: 'phone',
-    secondName: 'second',
+    secondName: 'second'
   },
   id: 'ddd',
-  nodes: [{
-    id: 'nnn',
-    paragraphs: [
-      {
-        content: 'Test',
-        height: 100,
-        id: 'ttt',
-        left: 0,
-        name: 'eee',
-        style: {},
-        top: 0,
-        width: 200,
-      },
+  nodes: [
+    {
+      col: Position.LEFT,
+      id: 'lll',
+      paragraphs: [
         {
-        content: 'Test2',
-        height: 100,
-        id: 'ttt',
-        left: 0,
-        name: 'fff',
-        style: {},
-        top: 0,
-        width: 200,
-      },
-    ],
-  }],
-}
+          content: 'Left',
+          height: 100,
+          id: 'ttt',
+          left: 0,
+          name: 'eee',
+          style: {},
+          top: 0,
+          width: 200
+        },
+        {
+          content: 'Left2s',
+          height: 100,
+          id: 'ttt',
+          left: 0,
+          name: 'fff',
+          style: {},
+          top: 0,
+          width: 200
+        }
+      ]
+    },
+
+    {
+      col: Position.RIGHT,
+      id: 'rrr',
+      paragraphs: [
+        {
+          content: 'Test',
+          height: 100,
+          id: 'ttt',
+          left: 0,
+          name: 'eee',
+          style: {},
+          top: 0,
+          width: 200
+        },
+        {
+          content: 'Test2',
+          height: 100,
+          id: 'ttt',
+          left: 0,
+          name: 'fff',
+          style: {},
+          top: 0,
+          width: 200
+        }
+      ]
+    }
+  ]
+};
 
 class App extends React.Component {
   public render() {

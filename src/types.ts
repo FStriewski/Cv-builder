@@ -1,5 +1,10 @@
 export type ID = string;
 
+export enum Position {
+  LEFT,
+  RIGHT
+}
+
 export interface ITextStyle {
   color?: string;
   fontFamily?: string;
@@ -27,6 +32,7 @@ export interface IHeader {
 
 export interface INode {
   id: ID;
+  col: Position;
   paragraphs: ITextElement[];
 }
 
