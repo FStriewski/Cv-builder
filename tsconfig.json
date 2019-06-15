@@ -10,6 +10,7 @@
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
+    "max-classes-per-file": false,  
     "resolveJsonModule": true,
       "semicolon": [
         true,
