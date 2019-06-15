@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/draft-js": "^0.10.32",
     "@types/react": "^16.7.13",
     "@types/react-dom": "^16.0.11",
+    "draft-js": "^0.10.5",
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
+    "react-draggable": "^3.3.0",
     "react-scripts-ts": "^4.0.8"
   },
   "scripts": {

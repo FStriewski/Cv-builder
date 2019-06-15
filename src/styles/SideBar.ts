@@ -7,7 +7,7 @@ export const SideBar = styled.div`
   flex-shrink: 0;
   position: relative;
   z-index: 2;
-  width: 250px;
+  width: 200px;
   float: left;
 
   overflow: hidden;

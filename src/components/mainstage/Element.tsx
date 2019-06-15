@@ -5,15 +5,19 @@ import { DraggableHOC, DragState } from './DraggableHOC';
 import Draggable from 'react-draggable';
 
 export const ElementItem = () => (
-  <DragState>
-    {({ dragHandlers, handleDrag }) => (
-      <Element>
-        <Draggable onDrag={handleDrag} {...dragHandlers}>
-          <div className="box">
-            <div>Move me</div>
-          </div>
-        </Draggable>
-      </Element>
-    )}
-  </DragState>
-);
+         <DragState>
+           {({ dragHandlers, handleDrag }) => (
+          
+               <Draggable
+                 bounds="parent"
+                 grid={[20, 20]}
+                 onDrag={handleDrag}
+                 {...dragHandlers}
+               >
+                 <Element className="box">
+                   <div>Move me</div>
+                 </Element>
+               </Draggable>
+           )}
+         </DragState>
+       );

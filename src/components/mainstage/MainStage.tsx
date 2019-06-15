@@ -2,11 +2,18 @@ import * as React from 'react';
 import { MainStage as StyledMainStage } from '../../styles/MainStage';
 import { DraggableHOC, DragState } from './DraggableHOC';
 import { ElementItem } from './Element';
+import { Col1, Col2 } from './Columns';
 
 const MainStage = () => (
   <DraggableHOC>
     <StyledMainStage>
-          <ElementItem />
+      <Col1>
+        <ElementItem />
+      </Col1>
+      <Col2 >
+        <ElementItem />
+        <ElementItem />
+      </Col2>
     </StyledMainStage>
   </DraggableHOC>
 );
