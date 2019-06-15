@@ -4,13 +4,28 @@
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom"],
+    "lib": ["es6", "dom", "es2017"],
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "src",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+      "semicolon": [
+        true,
+        "always",
+        "ignore-interfaces",
+        "ignore-bound-class-methods"
+      ],
+      "max-line-length": [
+        true,
+        80
+      ],
+      "indent": [
+        true,
+        "spaces",
+        2
+      ],
   },
   "exclude": [
     "node_modules",
