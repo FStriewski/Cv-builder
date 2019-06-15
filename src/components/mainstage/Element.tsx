@@ -4,7 +4,7 @@ import { DraggableHOC, DragState } from './DraggableHOC';
 
 import Draggable from 'react-draggable';
 
-export const ElementItem = () => (
+export const DraggableWrapper = () => (
          <DragState>
            {({ dragHandlers, handleDrag }) => (
           
