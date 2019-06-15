@@ -1,8 +1,14 @@
 import * as React from 'react';
 import { Element } from '../../styles/Element';
-import { DraggableHOC, DragState } from './DraggableHOC';
+import { DragState } from './DraggableHOC';
 
 import Draggable from 'react-draggable';
+
+const Paragraph = (props) => (
+  <div>
+    {props.content}
+  </div>
+);
 
 const DraggableWrapper = (props) => (
          <DragState>
@@ -14,19 +20,16 @@ const DraggableWrapper = (props) => (
                  onDrag={handleDrag}
                  {...dragHandlers}
                >
-                 {/* <Element className="box">
-                   <div>{content}</div>
-                 </Element> */}
                  {props.children}
                </Draggable>
            )}
          </DragState>
        );
 
-export const Node = ({ content }) => (
+export const Node = ({ paragraphs }) => (
          <DraggableWrapper>
            <Element className="box">
-             <div>{content.map(x => x.id)}</div>
+             {paragraphs.map(p => <Paragraph key={p.id} {...p}/>)}
            </Element>
          </DraggableWrapper>
        ); 
