@@ -3,7 +3,7 @@ import { COMMON, SCHEMA_1, SCHEMA_2, SCHEMA_3 } from './variables';
 
 export const Header = styled.div`
          border: 1px solid ${SCHEMA_1.COLOR_2};
-         box-shadow: 0 1px 8px 0 #f3f3f3;
+         box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
 
          align-items: center;
          display: flex;

@@ -17,7 +17,8 @@ export const Column = styled<
          float: left;
 
          overflow: hidden;
-         border: 1px solid ${SCHEMA_1.COLOR_2};
-         background-color: #f3f3f3;
+         border: 1px dashed ${SCHEMA_1.COLOR_2};
+         background-color: #f5f5f5;
          border-top: none;
+         border-left: none;
        `;

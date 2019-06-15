@@ -6,4 +6,5 @@ export const MainStage = styled.div`
          height: calc(100vh - 70px);
          display: flex;
          flex-wrap: nowrap;
+         padding: 10px;
        `;
