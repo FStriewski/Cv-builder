@@ -11,5 +11,26 @@ export const Element = styled.div`
     text-align: center;
     padding: 5px;
   }
-
 `;
+
+const setBorder = (selected: boolean) => {
+  console.log(selected)
+  if (selected) {
+    return '2px solid red';
+  }
+  return '1px solid grey';
+};
+
+export const Paragraph = styled<
+         {
+           selected: boolean;
+         },
+         'div'
+       >('div')`
+         border: ${props =>
+           setBorder(props.selected)};
+         padding: 5px;
+           if (isSelected) {
+    return COLOR.WHITE;
+  }
+       `;

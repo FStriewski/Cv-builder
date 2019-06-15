@@ -19,7 +19,6 @@ export class CVState extends React.Component<IProps, ICV> {
            this.state = this.props.initialState;
          }
          render() {
-           console.log(this.state)
            return (
              <Provider
                value={{
