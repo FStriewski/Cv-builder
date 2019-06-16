@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { MainStage as StyledMainStage } from '../../styles/MainStage';
-import { DraggableHOC, DragState } from './DraggableHOC';
+import { DraggableHOC, DragState } from '../../lib/DraggableHOC';
 import { Node } from './Element';
 import { Col1, Col2 } from './Columns';
 import CV from '../../data/Cvdata';
 import { Position } from 'src/types';
 import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
+import ModeSetting from '../../data/Mode';
+
 
 const renderNodes = nodeCollection => {
   if (!nodeCollection) {

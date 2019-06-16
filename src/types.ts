@@ -5,6 +5,11 @@ export enum Position {
   RIGHT
 }
 
+export enum Mode {
+  DRAG,
+  EDIT
+}
+
 export interface ITextStyle {
   color?: string;
   fontFamily?: string;

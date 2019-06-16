@@ -39,13 +39,9 @@ export class SelectionStateProvider extends React.Component<{}, IState> {
     
   select = (e: React.MouseEvent, id: ID) => {
       stopPropagation(e);
-      
-      console.log(this.state.selectedId)
-    // if (id === this.state.selectedId) {
-    //   return;
-    // }
-    this.clear()
-    this.setState(selectId(id));
+        this.clear()
+        this.setState(selectId(id));
+        console.log(this.state.selectedId)
   };
 
   render() {

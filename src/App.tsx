@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import BottomBar from './components/BottomBar';
 import Header from './components/Header';
 import MainStage from './components/mainstage/MainStage';
@@ -7,6 +6,8 @@ import SideBar from './components/sidebar/SideBar';
 import { App as StyledApp } from './styles/App';
 import { CVState } from './data/Cvdata';
 import { ICV, Position } from './types';
+import './styles/index';
+import { ModeState } from './data/Mode';
 
 // Shall be provided by API
 const initialState: ICV = {
@@ -104,11 +105,13 @@ class App extends React.Component {
   public render() {
     return (
       <CVState initialState={initialState}>
-        <StyledApp>
-          <Header />
-          <SideBar />
-          <MainStage />
-        </StyledApp>
+        <ModeState>
+          <StyledApp>
+            <Header />
+            <SideBar />
+            <MainStage />
+          </StyledApp>
+        </ModeState>
       </CVState>
     );
   }

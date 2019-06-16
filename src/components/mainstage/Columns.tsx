@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Column } from '../../styles/Column';
+import { Column } from '../../styles/Columns';
 
 export const Col1 = ({ children }) => <Column width={30}>{children}</Column>;
 
