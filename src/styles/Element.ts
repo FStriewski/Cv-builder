@@ -14,7 +14,6 @@ export const Element = styled.div`
 `;
 
 const setBorder = (selected: boolean) => {
-  console.log(selected)
   if (selected) {
     return '2px solid red';
   }

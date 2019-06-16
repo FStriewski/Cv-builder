@@ -8,9 +8,7 @@ type Props = ITextElement & {
   autoFocus?: boolean;
   content?: string;
   id: ID;
-  isSelected: boolean;
-  overflowSet: (status: boolean) => void;
-  isOverflown: boolean;
+  selected: boolean;
 };
 
 interface IState {
@@ -18,7 +16,7 @@ interface IState {
   editorParent: any;
 }
 
-class TextElement extends React.Component<Props, IState> {
+export class TextElement extends React.Component<Props, IState> {
   constructor(props: Props) {
     super(props);
     this.state = { editorState: EditorState.createEmpty(), editorParent: null };
@@ -46,7 +44,7 @@ class TextElement extends React.Component<Props, IState> {
   render() {
     return (
       <React.Fragment>
-        {this.props.isSelected ? (
+        {this.props.selected ? (
           <Editor
             editorState={this.state.editorState}
             onChange={editor => {

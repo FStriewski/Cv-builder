@@ -3,21 +3,26 @@ import Draggable from 'react-draggable';
 import { Element, Paragraph } from '../../styles/Element';
 import { DragState } from './DraggableHOC';
 import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
+import {TextElement} from './TextElement';
 
-const ParagraphBox = props => (
+const ParagraphBox = props =>
+{
+return (
   <SelectionStateProvider>
     <SelectionState>
       {({ select, selectedId }) => (
-        // tslint:disable-next-line:jsx-no-lambda
-        <Paragraph onMouseDown={e => select(e, props.id)} selected={selectedId === props.id}>
-          {console.log(selectedId, props.id)}
-          {props.content}
+        // tslint:disable:jsx-no-lambda
+        <Paragraph
+          onMouseDown={e => select(e, props.id)}
+          selected={selectedId === props.id}
+        >
+          <TextElement selected={selectedId === props.id} {...props} />
         </Paragraph>
       )}
     </SelectionState>
   </SelectionStateProvider>
 );
-
+}
 const DraggableWrapper = props => (
   <DragState>
     {({ dragHandlers, handleDrag }) => (
