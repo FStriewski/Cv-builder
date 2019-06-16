@@ -8,7 +8,6 @@ import {TextElement} from './TextElement';
 const ParagraphBox = props =>
 {
 return (
-  <SelectionStateProvider>
     <SelectionState>
       {({ select, selectedId }) => (
         // tslint:disable:jsx-no-lambda
@@ -20,7 +19,6 @@ return (
         </Paragraph>
       )}
     </SelectionState>
-  </SelectionStateProvider>
 );
 }
 const DraggableWrapper = props => (

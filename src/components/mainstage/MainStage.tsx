@@ -5,6 +5,7 @@ import { Node } from './Element';
 import { Col1, Col2 } from './Columns';
 import CV from '../../data/Cvdata';
 import { Position } from 'src/types';
+import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
 
 const renderNodes = nodeCollection => {
   if (!nodeCollection) {
@@ -27,10 +28,12 @@ const MainStage = () => (
   <CV>
     {({ data }) => (
       <DraggableHOC>
-        <StyledMainStage>
-          <Col1>{sortNodes(data, Position.LEFT)}</Col1>
-          <Col2>{sortNodes(data, Position.RIGHT)}</Col2>
-        </StyledMainStage>
+        <SelectionStateProvider>
+              <StyledMainStage>
+                <Col1>{sortNodes(data, Position.LEFT)}</Col1>
+                <Col2>{sortNodes(data, Position.RIGHT)}</Col2>
+              </StyledMainStage>
+        </SelectionStateProvider>
       </DraggableHOC>
     )}
   </CV>
