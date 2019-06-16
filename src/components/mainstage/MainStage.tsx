@@ -6,7 +6,6 @@ import { Col1, Col2 } from './Columns';
 import CV from '../../data/Cvdata';
 import { Position } from 'src/types';
 import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
-import ModeSetting from '../../data/Mode';
 
 
 const renderNodes = nodeCollection => {

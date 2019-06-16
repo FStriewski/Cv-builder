@@ -87,6 +87,7 @@ export class DraggableHOC extends React.Component {
     return (
       <Provider
         value={{
+          deltaPosition,
           dragHandlers,
           handleDrag: this.handleDrag
         }}

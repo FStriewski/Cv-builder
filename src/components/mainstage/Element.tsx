@@ -23,7 +23,7 @@ const ParagraphBox = props => (
 
 const DraggableWrapper = props => (
   <DragState>
-    {({ dragHandlers, handleDrag }) => (
+    {({ dragHandlers, handleDrag, deltaPosition }) => (
       <Draggable
         bounds="parent"
         grid={[20, 20]}
@@ -35,6 +35,8 @@ const DraggableWrapper = props => (
     )}
   </DragState>
 );
+
+// use deltaPosition to save position
 
 export const Node = ({ paragraphs }) => (
   <ModeSetting>
