@@ -13,26 +13,28 @@ const renderNodes = nodeCollection => {
     return <div />;
   }
   return nodeCollection.map(node => (
-    <Node key={node.id} paragraphs={node.paragraphs} />
+    <Node key={node.id}  
+    {...node}
+    />
   ));
 };
 
-const sortNodes = (data, col) => {
-  if (!data || !data.nodes) {
+const sortNodes = (nodes, col) => {
+  if (!nodes) {
     return;
   }
-  const nodeCollection = data.nodes.filter(node => node.col === col);
+  const nodeCollection = nodes.filter(node => node.col === col);
   return renderNodes(nodeCollection);
 };
 
 const MainStage = () => (
   <CV>
-    {({ data }) => (
+    {({ header, nodes }) => (
       <DraggableHOC>
         <SelectionStateProvider>
               <StyledMainStage>
-                <Col1>{sortNodes(data, Position.LEFT)}</Col1>
-                <Col2>{sortNodes(data, Position.RIGHT)}</Col2>
+                <Col1>{sortNodes(nodes, Position.LEFT)}</Col1>
+                <Col2>{sortNodes(nodes, Position.RIGHT)}</Col2>
               </StyledMainStage>
         </SelectionStateProvider>
       </DraggableHOC>

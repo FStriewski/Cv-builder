@@ -1,14 +1,15 @@
 import * as React from 'react';
 import Draggable from 'react-draggable';
 
-interface ITest {
+interface IHandler {
   onStart: () => void;
   onStop: () => void;
 }
 
 interface IRenderProps {
-  dragHandlers: ITest;
+  dragHandlers: IHandler;
   handleDrag: (e, ui) => void;
+  deltaPosition: {x:number, y:number}
 }
 
 const Ctx = React.createContext({} as IRenderProps);
@@ -42,6 +43,7 @@ export class DraggableHOC extends React.Component {
         y: y + ui.deltaY
       }
     });
+    return {x,y};
   };
 
   onStart = () => {

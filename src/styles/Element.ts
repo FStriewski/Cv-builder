@@ -1,7 +1,15 @@
 import styled from './styled-components';
 import { COMMON, SCHEMA_1, SCHEMA_2, SCHEMA_3 } from './variables';
 
-export const Element = styled.div`
+export const Element = styled<
+  {
+    x: number;
+    y: number;
+  },
+  'div'
+>('div')`
+x:${props => props.x};
+y:${props => props.y};
   width: 100%;
   height: 150px;
   background-color: white;

@@ -10,14 +10,19 @@ export enum Mode {
   EDIT
 }
 
+export interface IDimensions {
+  x: number;
+  y: number;
+}
+
 export interface ITextStyle {
   color?: string;
   fontFamily?: string;
   fontSize?: number;
 }
 
-export interface ITextElement {
-  id: ID,
+export interface ITextElement  {
+  id: ID;
   height: number;
   width: number;
   left: number;
@@ -34,8 +39,7 @@ export interface IHeader {
   email: string;
 }
 
-
-export interface INode {
+export interface INode extends IDimensions {
   id: ID;
   col: Position;
   paragraphs: ITextElement[];

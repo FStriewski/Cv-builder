@@ -43,7 +43,9 @@ const initialState: ICV = {
           top: 0,
           width: 200
         }
-      ]
+      ],
+      x: 0,
+      y: 0
     },
     {
       col: Position.LEFT,
@@ -69,7 +71,9 @@ const initialState: ICV = {
           top: 0,
           width: 200
         }
-      ]
+      ],
+      x: 0,
+      y: 0
     },
 
     {
@@ -96,7 +100,9 @@ const initialState: ICV = {
           top: 0,
           width: 200
         }
-      ]
+      ],
+      x: 0,
+      y: 0
     }
   ]
 };
@@ -104,7 +110,7 @@ const initialState: ICV = {
 class App extends React.Component {
   public render() {
     return (
-      <CVState initialState={initialState}>
+      <CVState json={initialState}>
         <ModeState>
           <StyledApp>
             <Header />

@@ -6,6 +6,7 @@ import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
 import { TextElement } from './TextElement';
 import { Mode } from '../../types';
 import ModeSetting from '../../data/Mode';
+import  CVConsumer  from 'src/data/Cvdata';
 
 const ParagraphBox = props => (
   <SelectionState>
@@ -22,36 +23,41 @@ const ParagraphBox = props => (
 );
 
 const DraggableWrapper = props => (
-  <DragState>
-    {({ dragHandlers, handleDrag, deltaPosition }) => (
-      <Draggable
-        bounds="parent"
-        grid={[20, 20]}
-        onDrag={handleDrag}
-        {...dragHandlers}
-      >
-        {props.children}
-      </Draggable>
+  <CVConsumer>
+    {({updatePosition}) => (
+      <DragState>
+        {({ dragHandlers, handleDrag, deltaPosition }) => (
+          <Draggable
+            bounds="parent"
+            grid={[20, 20]}
+            onDrag={(e, ui) => {
+              handleDrag(e, ui),
+                updatePosition(props.id, deltaPosition);
+            }}
+            {...dragHandlers}
+          >
+            {props.children}
+          </Draggable>
+        )}
+      </DragState>
     )}
-  </DragState>
+  </CVConsumer>
 );
 
-// use deltaPosition to save position
-
-export const Node = ({ paragraphs }) => (
+export const Node = (node ) => (
   <ModeSetting>
     {({ mode }) =>
       mode === Mode.DRAG ? (
-        <DraggableWrapper>
-          <Element className="box">
-            {paragraphs.map(p => (
+        <DraggableWrapper id={node.id}>
+          <Element className="box" {...node}>
+            {node.paragraphs.map(p => (
               <ParagraphBox key={p.id} {...p} />
             ))}
           </Element>
         </DraggableWrapper>
       ) : (
-        <Element className="box">
-          {paragraphs.map(p => (
+        <Element className="box" {...node}>
+          {node.paragraphs.map(p => (
             <ParagraphBox key={p.id} {...p} />
           ))}
         </Element>
