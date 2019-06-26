@@ -40,21 +40,25 @@ export class CVState extends React.Component<IProps, IState> {
     
     const header = this.props.json.header || null;
     const nodes = this.destructureNodes(this.props.json);
+    const paragraphs = this.destructureParagraphs(this.props.json);
     this.setState({
       header,
       nodes,
-      paragraphs: [],
+      paragraphs,
     });
   }
 
-destructureParagraphs = (node: INode) => {
-  const test = '';
-  return node.paragraphs} 
+destructureParagraphs = (json: ICV) => {
+      if (json.nodes) {
+        return json.nodes.map(node => node.paragraphs);
+      }
+      return [];
+    }
 
   destructureNodes = (json: ICV) => {
     if (json.nodes) {
-      return json.nodes.map(node => node
-      )}
+      return json.nodes
+    }
     return [];
   };
 
