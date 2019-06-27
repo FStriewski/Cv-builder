@@ -50,14 +50,20 @@ export class CVState extends React.Component<IProps, IState> {
 
 destructureParagraphs = (json: ICV) => {
       if (json.nodes) {
-        return json.nodes.map(node => node.paragraphs);
+        const arr = json.nodes.map(node => node.paragraphs);
+        const merged = [].concat.apply([], arr);
+
+        return merged
       }
       return [];
     }
 
   destructureNodes = (json: ICV) => {
-    if (json.nodes) {
-      return json.nodes
+    if (json.nodes){
+      return json.nodes.map(node => {
+        const {id, col, x, y} = node
+        return node
+      })
     }
     return [];
   };
