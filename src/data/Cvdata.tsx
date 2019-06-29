@@ -36,8 +36,6 @@ export class CVState extends React.Component<IProps, IState> {
   }
 
   componentDidMount() {
-    console.log(this.props.json);
-
     const header = this.props.json.header || null;
     const nodes = this.destructureNodes(this.props.json);
     const paragraphs = this.destructureParagraphs(this.props.json);
@@ -64,12 +62,9 @@ export class CVState extends React.Component<IProps, IState> {
 
   destructureNodes = (json: ICV) => {
     if (json.nodes) {
-      const test =  json.nodes.map(node =>
+      return json.nodes.map(node =>
         (({ id, x, y, col }) => ({ id, x, y, col }))(node)
       );
-      console.log(json.nodes)
-      console.log(test)
-      return json.nodes;
     }
     return [];
   };

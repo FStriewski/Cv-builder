@@ -49,7 +49,9 @@ interface IRNode {
   paragraphs: IParagraph[];
 }
 
-export const Node = ({node, paragraphs}: IRNode) => (
+export const Node = ({node, paragraphs}: IRNode) => {
+  console.log(node, paragraphs)
+  return (
   <ModeSetting>
     {({ mode }) =>
       mode === Mode.DRAG ? (
@@ -70,4 +72,4 @@ export const Node = ({node, paragraphs}: IRNode) => (
       )
     }
   </ModeSetting>
-);
+)};

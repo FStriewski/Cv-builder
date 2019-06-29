@@ -16,20 +16,38 @@ const renderNodes = ({ nodeCollection, paragraphs }: IRNodes) => {
   if (!nodeCollection) {
     return <div />;
   }
+  const fullNodeCollection = nodeCollection.map(node => {
+    const containedParagraphs = paragraphs.filter(p => p.parentId === node.id);
 
-  nodeCollection.map(node => {
-    const containedP = paragraphs.filter(p => p.parentId === node.id);
-
-    return <Node key={node.id} paragraphs={containedP} node={node} />;
+    return {
+      containedParagraphs,
+      node,
+    };
   });
+
+  return fullNodeCollection.map(item => {
+const {node, containedParagraphs} = item;
+
+   return  <Node
+      key={node.id}
+      paragraphs={containedParagraphs}
+      node={node}
+    />
+  });
+  console.log(nodeCollection);
+  return nodeCollection;
 };
 
-const sortNodes = (nodes: IPartialNode[], col:Position, paragraphs: IParagraph[]) => {
+const sortNodes = (
+  nodes: IPartialNode[],
+  col: Position,
+  paragraphs: IParagraph[]
+) => {
   if (nodes === []) {
     return;
   }
   const nodeCollection = nodes.filter(node => node.col === col);
-  return renderNodes({nodeCollection, paragraphs});
+  return renderNodes({ nodeCollection, paragraphs });
 };
 
 interface IRenderProps {
