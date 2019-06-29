@@ -4,7 +4,7 @@ import { Element, Paragraph } from '../../styles/Element';
 import { DragState } from '../../lib/DraggableHOC';
 import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
 import { TextElement } from './TextElement';
-import { Mode } from '../../types';
+import { Mode, IPartialNode, IParagraph } from '../../types';
 import ModeSetting from '../../data/Mode';
 import  CVConsumer  from 'src/data/Cvdata';
 
@@ -44,21 +44,27 @@ const DraggableWrapper = props => (
   </CVConsumer>
 );
 
-export const Node = (node ) => (
+interface IRNode {
+  node: IPartialNode;
+  paragraphs: IParagraph[];
+}
+
+export const Node = ({node, paragraphs}: IRNode) => (
   <ModeSetting>
     {({ mode }) =>
       mode === Mode.DRAG ? (
         <DraggableWrapper id={node.id}>
           <Element className="box" {...node}>
-            {node.paragraphs.map(p => (
-              <ParagraphBox key={p.id} {...p} />
+
+            {paragraphs.map(paragraph => (
+              <ParagraphBox key={paragraph.id} {...paragraph} />
             ))}
           </Element>
         </DraggableWrapper>
       ) : (
         <Element className="box" {...node}>
-          {node.paragraphs.map(p => (
-            <ParagraphBox key={p.id} {...p} />
+          {paragraphs.map(paragraph => (
+            <ParagraphBox key={paragraph.id} {...paragraph} />
           ))}
         </Element>
       )

@@ -4,38 +4,49 @@ import { DraggableHOC, DragState } from '../../lib/DraggableHOC';
 import { Node } from './Element';
 import { Col1, Col2 } from './Columns';
 import CV from '../../data/Cvdata';
-import { Position } from 'src/types';
+import { Position, IPartialNode, IHeader, IParagraph } from 'src/types';
 import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
 
+interface IRNodes {
+  nodeCollection: IPartialNode[];
+  paragraphs: IParagraph[];
+}
 
-const renderNodes = nodeCollection => {
+const renderNodes = ({ nodeCollection, paragraphs }: IRNodes) => {
   if (!nodeCollection) {
     return <div />;
   }
-  return nodeCollection.map(node => (
-    <Node key={node.id}  
-    {...node}
-    />
-  ));
+
+  nodeCollection.map(node => {
+    const containedP = paragraphs.filter(p => p.parentId === node.id);
+
+    return <Node key={node.id} paragraphs={containedP} node={node} />;
+  });
 };
 
-const sortNodes = (nodes, col) => {
-  if (!nodes) {
+const sortNodes = (nodes: IPartialNode[], col:Position, paragraphs: IParagraph[]) => {
+  if (nodes === []) {
     return;
   }
   const nodeCollection = nodes.filter(node => node.col === col);
-  return renderNodes(nodeCollection);
+  return renderNodes({nodeCollection, paragraphs});
 };
+
+interface IRenderProps {
+  header: IHeader;
+  nodes: IPartialNode[];
+  paragraphs: IParagraph[];
+}
 
 const MainStage = () => (
   <CV>
-    {({ header, nodes }) => (
+    {({ header, nodes, paragraphs }: IRenderProps) => (
       <DraggableHOC>
         <SelectionStateProvider>
-              <StyledMainStage>
-                <Col1>{sortNodes(nodes, Position.LEFT)}</Col1>
-                <Col2>{sortNodes(nodes, Position.RIGHT)}</Col2>
-              </StyledMainStage>
+          <StyledMainStage>
+            <Col1>{sortNodes(nodes, Position.LEFT, paragraphs)}</Col1>
+            <Col2>{sortNodes(nodes, Position.RIGHT, paragraphs)}</Col2>
+          </StyledMainStage>
         </SelectionStateProvider>
       </DraggableHOC>
     )}

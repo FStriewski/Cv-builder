@@ -32,6 +32,10 @@ export interface ITextElement  {
   name: string;
 }
 
+export interface IParagraph extends ITextElement {
+  parentId: ID,
+}
+
 export interface IHeader {
   firstName: string;
   secondName: string;
@@ -43,6 +47,13 @@ export interface INode extends IDimensions {
   id: ID;
   col: Position;
   paragraphs: ITextElement[];
+}
+
+export interface IPartialNode {
+  id: string;
+  x: number;
+  y: number;
+  col: Position;
 }
 
 export interface ICV {

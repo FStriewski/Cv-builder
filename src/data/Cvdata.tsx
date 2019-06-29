@@ -1,25 +1,18 @@
 import * as React from 'react';
-import { ID, ITextElement, ICV, INode, IHeader, Position } from '../types';
+import { ID, ICV, INode, IHeader, Position, IPartialNode, IParagraph } from '../types';
 import { Paragraph } from 'src/styles/Element';
-
-interface IPartialNode {
-  id: string;
-  x: number;
-  y: number;
-  col: Position;
-}
 
 interface IState {
   id: string;
   header: IHeader;
   nodes: IPartialNode[];
-  paragraphs: ITextElement[];
+  paragraphs: IParagraph[];
 }
 
 interface IRenderProps {
   header: IHeader;
   nodes: IPartialNode[];
-  paragraphs: ITextElement[];
+  paragraphs: IParagraph[];
   updatePosition: (id, pos) => void;
 }
 
@@ -55,7 +48,7 @@ export class CVState extends React.Component<IProps, IState> {
     });
   }
 
-  destructureParagraphs = (json: ICV) => {
+  destructureParagraphs = (json: ICV):IParagraph[] => {
     if (json.nodes) {
       // add parent id to each paragraph for lookup
       const arr = json.nodes.map(node =>
@@ -71,15 +64,17 @@ export class CVState extends React.Component<IProps, IState> {
 
   destructureNodes = (json: ICV) => {
     if (json.nodes) {
-      return json.nodes.map(node =>
+      const test =  json.nodes.map(node =>
         (({ id, x, y, col }) => ({ id, x, y, col }))(node)
       );
+      console.log(json.nodes)
+      console.log(test)
       return json.nodes;
     }
     return [];
   };
 
-  updateNodePosition = (id, position) => {
+  updateNodePosition = (id: ID, position) => {
     const { x, y } = position;
     this.setState({
       ...this.state,
@@ -114,8 +109,7 @@ export class CVState extends React.Component<IProps, IState> {
   //   };
 
   render() {
-    // console.log(this.state);
-    console.log(this.state.paragraphs);
+    console.log(this.state);
     return (
       <Provider
         value={{
