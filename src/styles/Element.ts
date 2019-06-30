@@ -16,6 +16,8 @@ y:${props => props.y};
   border: 1px solid ${SCHEMA_1.COLOR_3};
   text-align: center;
   z-index: 10;
+    position: relative;
+
 `;
 
 const setBorder = (selected: boolean) => {

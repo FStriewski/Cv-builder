@@ -45,7 +45,7 @@ const initialState: ICV = {
         }
       ],
       x: 0,
-      y: 0
+      y: 400
     },
     {
       col: Position.LEFT,

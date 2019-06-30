@@ -26,13 +26,14 @@ const DraggableWrapper = props => (
   <CVConsumer>
     {({updatePosition}) => (
       <DragState>
-        {({ dragHandlers, handleDrag, deltaPosition }) => (
+        {({ dragHandlers, handleDrag, deltaPosition, setInitialPos }) => (
           <Draggable
             bounds="parent"
             grid={[20, 20]}
             onDrag={(e, ui) => {
               handleDrag(e, ui),
-                updatePosition(props.id, deltaPosition);
+                updatePosition(props.id, deltaPosition),
+                setInitialPos(deltaPosition.x, deltaPosition.y);
             }}
             {...dragHandlers}
           >

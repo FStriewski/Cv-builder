@@ -1,5 +1,13 @@
 import * as React from 'react';
-import { ID, ICV, INode, IHeader, Position, IPartialNode, IParagraph } from '../types';
+import {
+  ID,
+  ICV,
+  INode,
+  IHeader,
+  Position,
+  IPartialNode,
+  IParagraph
+} from '../types';
 import { Paragraph } from 'src/styles/Element';
 
 interface IState {
@@ -14,6 +22,7 @@ interface IRenderProps {
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
   updatePosition: (id, pos) => void;
+  updateParagraph: (id, content) => void;
 }
 
 interface IProps {
@@ -46,7 +55,7 @@ export class CVState extends React.Component<IProps, IState> {
     });
   }
 
-  destructureParagraphs = (json: ICV):IParagraph[] => {
+  destructureParagraphs = (json: ICV): IParagraph[] => {
     if (json.nodes) {
       // add parent id to each paragraph for lookup
       const arr = json.nodes.map(node =>
@@ -86,22 +95,20 @@ export class CVState extends React.Component<IProps, IState> {
     });
   };
 
-  // updateParagraph = (id, pid, content) => {
-  //   this.setState({
-  //     ...this.state,
-  //     nodes:
-  //     ...this.state.nodes,
-  //     this.state.nodes.filter(node => node.id = id)
-  //       if (node.id === id) {
-  //         return {
-  //           ...node,
-  //           x,
-  //           y
-  //         };
-  //       }
-  //       return node;
-  //     })
-  //   };
+  updateParagraph = (id, content) => {
+    this.setState({
+      ...this.state,
+      paragraphs: this.state.paragraphs.filter(p => {
+        if (p.id === id) {
+          return {
+            ...p,
+            content
+          };
+        }
+        return p;
+      })
+    });
+  };
 
   render() {
     console.log(this.state);
@@ -111,8 +118,8 @@ export class CVState extends React.Component<IProps, IState> {
           header: this.state.header,
           nodes: this.state.nodes,
           paragraphs: this.state.paragraphs,
-          updatePosition: this.updateNodePosition
-          // updateParagraph: this.updateParagraph,
+          updateParagraph: this.updateParagraph,
+          updatePosition: this.updateNodePosition,
         }}
       >
         {this.props.children}
