@@ -3,11 +3,11 @@ import BottomBar from './components/BottomBar';
 import Header from './components/Header';
 import MainStage from './components/mainstage/MainStage';
 import SideBar from './components/sidebar/SideBar';
-import { App as StyledApp } from './styles/App';
 import { CVState } from './data/Cvdata';
-import { ICV, Position } from './types';
-import './styles/index';
 import { ModeState } from './data/Mode';
+import { App as StyledApp } from './styles/App';
+import './styles/index';
+import { ICV, Position } from './types';
 
 // Shall be provided by API
 const initialState: ICV = {

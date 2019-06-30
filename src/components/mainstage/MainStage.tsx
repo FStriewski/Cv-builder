@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { MainStage as StyledMainStage } from '../../styles/MainStage';
-import { DraggableHOC, DragState } from '../../lib/DraggableHOC';
-import { Node } from './Element';
-import { Col1, Col2 } from './Columns';
+import { IHeader, IParagraph, IPartialNode, Position } from 'src/types';
 import CV from '../../data/Cvdata';
-import { Position, IPartialNode, IHeader, IParagraph } from 'src/types';
-import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
+import { DraggableHOC, DragState } from '../../lib/DraggableHOC';
+import { SelectionStateProvider } from '../../lib/Selection';
+import { MainStage as StyledMainStage } from '../../styles/MainStage';
+import { Col1, Col2 } from './Columns';
+import { Node } from './Element';
 
 interface IRNodes {
   nodeCollection: IPartialNode[];
@@ -34,7 +34,6 @@ const {node, containedParagraphs} = item;
       node={node}
     />
   });
-  console.log(nodeCollection);
   return nodeCollection;
 };
 

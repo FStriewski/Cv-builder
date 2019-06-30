@@ -7,7 +7,10 @@ export const Button = styled.button`
 
   transition: background 0.2s;
 
-  height: 32px;
+  height: 20px;
+  line-height: 1;
+  min-width: 25px;
+  max-width: 200px;
   border-radius: 5px;
   border: none;
   outline: none;
@@ -15,6 +18,8 @@ export const Button = styled.button`
   background: transparent;
   cursor: pointer;
 
+    padding: 0 16px;
+  box-shadow: none;
   text-align: center;
   white-space: nowrap;
   background-color: ${SCHEMA_1.COLOR_3};

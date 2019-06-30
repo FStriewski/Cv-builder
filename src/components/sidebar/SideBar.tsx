@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { SideBar as StyledSideBar } from '../../styles/SideBar';
+import { Button } from '../../styles/Button';
 import { SideBarHeader } from './Header';
 import ModeSetting, { ModeState } from 'src/data/Mode';
 import { Mode } from '../../types';
@@ -10,9 +11,8 @@ const SideBar = () => (
     {({ mode, updateMode }) => (
       <StyledSideBar>
         <SideBarHeader />
-        Controls
-        <button onClick={() => updateMode(Mode.EDIT)}>Edit</button>
-        <button onClick={() => updateMode(Mode.DRAG)}>Drag</button>
+        <Button onClick={() => updateMode(Mode.EDIT)}>Edit</Button>
+        <Button onClick={() => updateMode(Mode.DRAG)}>Drag</Button>
       </StyledSideBar>
     )}
   </ModeSetting>

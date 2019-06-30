@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Draggable from 'react-draggable';
-import { Element, Paragraph } from '../../styles/Element';
+import CVConsumer from 'src/data/Cvdata';
+import ModeSetting from '../../data/Mode';
 import { DragState } from '../../lib/DraggableHOC';
 import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
+import { Element, Paragraph } from '../../styles/Element';
+import { IParagraph, IPartialNode, Mode } from '../../types';
 import { TextElement } from './TextElement';
-import { Mode, IPartialNode, IParagraph } from '../../types';
-import ModeSetting from '../../data/Mode';
-import  CVConsumer  from 'src/data/Cvdata';
 
 const ParagraphBox = props => (
   <SelectionState>
@@ -51,7 +51,6 @@ interface IRNode {
 }
 
 export const Node = ({node, paragraphs}: IRNode) => {
-  console.log(node, paragraphs)
   return (
   <ModeSetting>
     {({ mode }) =>
