@@ -8,44 +8,49 @@ import {
   DropdownListItem
 } from '../styles/Dropdown';
 
-interface IValue {
+import {ZoomState} from './ZoomContext';
+
+export type Value = {
   value: number;
+};
+
+export interface IZoom extends Value {
   label: string;
-};
+}
 
-const DEFAULT: IValue = {
+const DEFAULT: IZoom = {
   label: '100%',
-  value: 1,
+  value: 1
 };
 
-const ZOOMVALUES: IValue[] = [
+const ZOOMVALUES: IZoom[] = [
   {
     label: '25%',
-    value: 0.25,
+    value: 0.25
   },
   {
     label: '50%',
-    value: 0.5,
+    value: 0.5
   },
   {
     label: '75%',
-    value: 0.75,
+    value: 0.75
   },
   {
     label: '100%',
-    value: 1,
+    value: 1
   },
   {
     label: '200%',
-    value: 2,
+    value: 2
   },
   {
     label: '300%',
-    value: 3,
+    value: 3
   },
   {
     label: '400%',
-    value: 4,
+    value: 4
   }
 ];
 
@@ -54,30 +59,29 @@ const getZoomValue = (value: number) => {
   return zoomvalue.label;
 };
 
-export const Zoom = () => {
-  const [zoomValue, setZoomValue] = useState({ value: 1 });
 
-  return (
-    <div>
-      <Dropdown
-        autoClose={true}
-        handler={(onToggle) => (
-          <Button onClick={onToggle}>
-            {getZoomValue(zoomValue.value)}
-          </Button>
-        )}
-      >
-        <StyledDropdownList>
-          {ZOOMVALUES.map((zoom, index) => (
-            <DropdownListItem
-              key={index}
-              onClick={() => setZoomValue({value: zoom.value})}
-            >
-              {zoom.label}
-            </DropdownListItem>
-          ))}
-        </StyledDropdownList>
-      </Dropdown>
-    </div>
-  );
-};
+export const Zoom = () => (
+  <ZoomState>
+    {({ zoomValue, updateZoomValue }) => (
+      <React.Fragment>
+        <Dropdown
+          autoClose={true}
+          handler={onToggle => (
+            <Button onClick={onToggle}>{getZoomValue(zoomValue)}</Button>
+          )}
+        >
+          <StyledDropdownList>
+            {ZOOMVALUES.map((zoom, index) => (
+              <DropdownListItem
+                key={index}
+                onClick={() => updateZoomValue(zoom.value)}
+              >
+                {zoom.label}
+              </DropdownListItem>
+            ))}
+          </StyledDropdownList>
+        </Dropdown>
+      </React.Fragment>
+    )}
+  </ZoomState>
+);

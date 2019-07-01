@@ -1,9 +1,11 @@
 import styled from './styled-components';
 
-import { COMMON, SCHEMA_1, SCHEMA_2, SCHEMA_3 } from './variables';
-
-export const MainStage = styled.div`
+export const MainStage = styled<
+  { zoom: number },
+  'div'
+>('div')`
   height: calc(100vh - 60px);
   display: flex;
   flex-wrap: nowrap;
+  transform: scale(${props => props.zoom});
 `;

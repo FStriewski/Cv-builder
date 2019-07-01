@@ -6,6 +6,7 @@ import { SelectionStateProvider } from '../../lib/Selection';
 import { MainStage as StyledMainStage } from '../../styles/MainStage';
 import { Col1, Col2 } from './Columns';
 import { Node } from './Element';
+import {ZoomState, ZoomStateProvider} from '../ZoomContext';
 
 interface IRNodes {
   nodeCollection: IPartialNode[];
@@ -21,20 +22,15 @@ const renderNodes = ({ nodeCollection, paragraphs }: IRNodes) => {
 
     return {
       containedParagraphs,
-      node,
+      node
     };
   });
 
   return fullNodeCollection.map(item => {
-const {node, containedParagraphs} = item;
+    const { node, containedParagraphs } = item;
 
-   return  <Node
-      key={node.id}
-      paragraphs={containedParagraphs}
-      node={node}
-    />
+    return <Node key={node.id} paragraphs={containedParagraphs} node={node} />;
   });
-  return nodeCollection;
 };
 
 const sortNodes = (
@@ -60,10 +56,14 @@ const MainStage = () => (
     {({ header, nodes, paragraphs }: IRenderProps) => (
       <DraggableHOC>
         <SelectionStateProvider>
-          <StyledMainStage>
-            <Col1>{sortNodes(nodes, Position.LEFT, paragraphs)}</Col1>
-            <Col2>{sortNodes(nodes, Position.RIGHT, paragraphs)}</Col2>
-          </StyledMainStage>
+          <ZoomState>
+            {({zoomValue}) => (
+              <StyledMainStage zoom={zoomValue}>
+                <Col1>{sortNodes(nodes, Position.LEFT, paragraphs)}</Col1>
+                <Col2>{sortNodes(nodes, Position.RIGHT, paragraphs)}</Col2>
+              </StyledMainStage>
+            )}
+          </ZoomState>
         </SelectionStateProvider>
       </DraggableHOC>
     )}

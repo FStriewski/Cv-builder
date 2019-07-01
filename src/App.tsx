@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BottomBar from './components/BottomBar';
+import {ZoomStateProvider} from './components/ZoomContext';
 import Header from './components/Header';
 import MainStage from './components/mainstage/MainStage';
 import SideBar from './components/sidebar/SideBar';
@@ -112,11 +112,15 @@ class App extends React.Component {
     return (
       <CVState json={initialState}>
         <ModeState>
+                  <ZoomStateProvider>
+
           <StyledApp>
             <Header />
             <SideBar />
             <MainStage />
           </StyledApp>
+                  </ZoomStateProvider>
+
         </ModeState>
       </CVState>
     );
