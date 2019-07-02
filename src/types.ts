@@ -16,7 +16,7 @@ export interface IDimensions {
 }
 
 export interface ITextStyle {
-  color?: string;
+  color: string;
   fontFamily?: string;
   fontSize?: number;
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ZoomStateProvider} from './components/ZoomContext';
+import { ZoomStateProvider } from './components/ZoomContext';
 import Header from './components/Header';
 import MainStage from './components/mainstage/MainStage';
 import SideBar from './components/sidebar/SideBar';
@@ -8,6 +8,8 @@ import { ModeState } from './data/Mode';
 import { App as StyledApp } from './styles/App';
 import './styles/index';
 import { ICV, Position } from './types';
+
+const DEFAULT_COLOR = '#ffffff';
 
 // Shall be provided by API
 const initialState: ICV = {
@@ -29,7 +31,9 @@ const initialState: ICV = {
           id: 'N1P1',
           left: 0,
           name: 'eee',
-          style: {},
+          style: {
+            color: DEFAULT_COLOR
+          },
           top: 0,
           width: 200
         },
@@ -39,7 +43,7 @@ const initialState: ICV = {
           id: 'N1P2',
           left: 0,
           name: 'fff',
-          style: {},
+          style: { color: DEFAULT_COLOR },
           top: 0,
           width: 200
         }
@@ -57,7 +61,7 @@ const initialState: ICV = {
           id: 'N2P1',
           left: 0,
           name: 'eee',
-          style: {},
+          style: { color: DEFAULT_COLOR },
           top: 0,
           width: 200
         },
@@ -67,7 +71,7 @@ const initialState: ICV = {
           id: 'N2P2',
           left: 0,
           name: 'fff',
-          style: {},
+          style: { color: DEFAULT_COLOR },
           top: 0,
           width: 200
         }
@@ -86,7 +90,7 @@ const initialState: ICV = {
           id: 'N3P1',
           left: 0,
           name: 'eee',
-          style: {},
+          style: { color: DEFAULT_COLOR },
           top: 0,
           width: 200
         },
@@ -96,7 +100,7 @@ const initialState: ICV = {
           id: 'N3P2',
           left: 0,
           name: 'fff',
-          style: {},
+          style: { color: DEFAULT_COLOR },
           top: 0,
           width: 200
         }
@@ -112,15 +116,13 @@ class App extends React.Component {
     return (
       <CVState json={initialState}>
         <ModeState>
-                  <ZoomStateProvider>
-
-          <StyledApp>
-            <Header />
-            <SideBar />
-            <MainStage />
-          </StyledApp>
-                  </ZoomStateProvider>
-
+          <ZoomStateProvider>
+            <StyledApp>
+              <Header />
+              <SideBar />
+              <MainStage />
+            </StyledApp>
+          </ZoomStateProvider>
         </ModeState>
       </CVState>
     );

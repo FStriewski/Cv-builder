@@ -8,7 +8,6 @@ import {
   IPartialNode,
   IParagraph
 } from '../types';
-import { Paragraph } from 'src/styles/Element';
 
 interface IState {
   id: string;
@@ -22,7 +21,7 @@ interface IRenderProps {
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
   updatePosition: (id, pos) => void;
-  updateParagraph: (id, content) => void;
+  updateColor: (id, color) => void;
 }
 
 interface IProps {
@@ -95,19 +94,28 @@ export class CVState extends React.Component<IProps, IState> {
     });
   };
 
-  updateParagraph = (id, content) => {
-    this.setState({
-      ...this.state,
-      paragraphs: this.state.paragraphs.filter(p => {
-        if (p.id === id) {
-          return {
-            ...p,
-            content
-          };
+  getParagraph = (id: string) => this.state.paragraphs[id];
+
+  setParagraph = (id: string, paragraph: IParagraph) => {
+    if (id in this.state.paragraphs) {
+      this.setState({
+        ...this.state,
+        paragraphs: {
+          ...this.state.paragraphs,
+          [id]: paragraph
         }
-        return p;
-      })
-    });
+      });
+    }
+  };
+
+  updateColor = (id, color) => {
+    const p = this.getParagraph(id);
+    const updatedParagraph = {
+      ...p,
+      style: { ...p.style, color }
+    };
+
+    this.setParagraph(id, updatedParagraph);
   };
 
   render() {
@@ -118,8 +126,8 @@ export class CVState extends React.Component<IProps, IState> {
           header: this.state.header,
           nodes: this.state.nodes,
           paragraphs: this.state.paragraphs,
-          updateParagraph: this.updateParagraph,
-          updatePosition: this.updateNodePosition,
+          updateColor: this.updateColor,
+          updatePosition: this.updateNodePosition
         }}
       >
         {this.props.children}
