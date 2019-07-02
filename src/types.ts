@@ -18,7 +18,7 @@ export interface IDimensions {
 export interface ITextStyle {
   color: string;
   fontFamily?: string;
-  fontSize?: number;
+  fontSize: number;
 }
 
 export interface ITextElement  {

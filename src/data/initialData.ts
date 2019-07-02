@@ -1,6 +1,7 @@
 import { ICV, Position } from '../types';
 
 const DEFAULT_COLOR = '#000000';
+const DEFAULT_SIZE = 12;
 
 // Shall be provided by API
 
@@ -24,7 +25,8 @@ export const initialState: ICV = {
           left: 0,
           name: 'Header',
           style: {
-            color: DEFAULT_COLOR
+            color: DEFAULT_COLOR,
+            fontSize: DEFAULT_SIZE,
           },
           top: 0,
           width: 200
@@ -35,7 +37,10 @@ export const initialState: ICV = {
           id: 'N1P2',
           left: 0,
           name: 'Stuff',
-          style: { color: DEFAULT_COLOR },
+          style: {
+            color: DEFAULT_COLOR,
+            fontSize: DEFAULT_SIZE,
+          },
           top: 0,
           width: 200
         }
@@ -53,7 +58,7 @@ export const initialState: ICV = {
           id: 'Header',
           left: 0,
           name: 'Header',
-          style: { color: DEFAULT_COLOR },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },
@@ -63,7 +68,7 @@ export const initialState: ICV = {
           id: 'N2P2',
           left: 0,
           name: 'Stuff',
-          style: { color: DEFAULT_COLOR },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         }
@@ -82,7 +87,7 @@ export const initialState: ICV = {
           id: 'N3P1',
           left: 0,
           name: 'eee',
-          style: { color: DEFAULT_COLOR },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },
@@ -92,7 +97,7 @@ export const initialState: ICV = {
           id: 'N3P2',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },
@@ -102,7 +107,7 @@ export const initialState: ICV = {
           id: 'N3P3',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },
@@ -112,7 +117,7 @@ export const initialState: ICV = {
           id: 'N3P4',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },

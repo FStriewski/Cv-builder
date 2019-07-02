@@ -120,6 +120,7 @@ export class CVState extends React.Component<IProps, IState> {
     };
 
     this.setParagraph(id, updatedParagraph, index);
+    console.log(this.state.paragraphs)
   };
 
   render() {

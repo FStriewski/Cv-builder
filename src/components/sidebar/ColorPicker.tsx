@@ -44,5 +44,3 @@ export const ColorPicker = (props) => (
     )}
   </CV>
 );
-
-export default ColorPicker;
