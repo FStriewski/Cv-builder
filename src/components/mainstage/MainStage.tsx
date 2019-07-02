@@ -58,8 +58,8 @@ const MainStage = (props) => (
           <ZoomState>
             {({zoomValue}) => (
               <StyledMainStage zoom={zoomValue}>
-                <Col1>{sortNodes(nodes, Position.LEFT, paragraphs)}</Col1>
-                <Col2>{sortNodes(nodes, Position.RIGHT, paragraphs)}</Col2>
+                <Col2>{sortNodes(nodes, Position.SIDE, paragraphs)}</Col2>
+                <Col1>{sortNodes(nodes, Position.MAIN, paragraphs)}</Col1>
               </StyledMainStage>
             )}
           </ZoomState>

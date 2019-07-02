@@ -19,6 +19,5 @@ export const Column = styled<
   overflow: hidden;
   border: 1px dashed ${SCHEMA_1.COLOR_2};
   background-color: #f5f5f5;
-  border-left: none;
-  border-top: none;
+
 `;

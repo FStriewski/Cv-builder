@@ -1,8 +1,8 @@
 export type ID = string;
 
 export enum Position {
-  LEFT,
-  RIGHT
+  SIDE,
+  MAIN
 }
 
 export enum Mode {
