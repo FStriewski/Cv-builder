@@ -1,21 +1,71 @@
 import * as React from 'react';
+import { IHeader, IParagraph, IPartialNode, Position } from 'src/types';
+import CV from '../../data/Cvdata';
+import { DraggableHOC, DragState } from '../../lib/DraggableHOC';
+import { SelectionStateProvider } from '../../lib/Selection';
 import { MainStage as StyledMainStage } from '../../styles/MainStage';
-import { DraggableHOC, DragState } from './DraggableHOC';
-import { ElementItem } from './Element';
 import { Col1, Col2 } from './Columns';
+import { Node } from './Element';
+import {ZoomState, ZoomStateProvider} from '../ZoomContext';
 
-const MainStage = () => (
-  <DraggableHOC>
-    <StyledMainStage>
-      <Col1>
-        <ElementItem />
-      </Col1>
-      <Col2 >
-        <ElementItem />
-        <ElementItem />
-      </Col2>
-    </StyledMainStage>
-  </DraggableHOC>
+interface IRNodes {
+  nodeCollection: IPartialNode[];
+  paragraphs: IParagraph[];
+}
+
+const renderNodes = ({ nodeCollection, paragraphs }: IRNodes) => {
+  if (!nodeCollection) {
+    return <div />;
+  }
+  const fullNodeCollection = nodeCollection.map(node => {
+    const containedParagraphs = paragraphs.filter(p => p.parentId === node.id);
+
+    return {
+      containedParagraphs,
+      node
+    };
+  });
+
+  return fullNodeCollection.map(item => {
+    const { node, containedParagraphs } = item;
+
+    return <Node key={node.id} paragraphs={containedParagraphs} node={node} />;
+  });
+};
+
+const sortNodes = (
+  nodes: IPartialNode[],
+  col: Position,
+  paragraphs: IParagraph[]
+) => {
+  if (nodes === []) {
+    return;
+  }
+  const nodeCollection = nodes.filter(node => node.col === col);
+  return renderNodes({ nodeCollection, paragraphs });
+};
+
+interface IRenderProps {
+  header: IHeader;
+  nodes: IPartialNode[];
+  paragraphs: IParagraph[];
+}
+
+const MainStage = (props) => (
+  <CV>
+    {({ header, nodes, paragraphs }: IRenderProps) => (
+      <DraggableHOC>
+          <ZoomState>
+            {({zoomValue}) => (
+              <StyledMainStage zoom={zoomValue}>
+                <Col1>{sortNodes(nodes, Position.LEFT, paragraphs)}</Col1>
+                <Col2>{sortNodes(nodes, Position.RIGHT, paragraphs)}</Col2>
+              </StyledMainStage>
+            )}
+          </ZoomState>
+      </DraggableHOC>
+    )}
+  </CV>
 );
 
 export default MainStage;
