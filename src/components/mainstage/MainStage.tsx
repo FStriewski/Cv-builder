@@ -51,11 +51,10 @@ interface IRenderProps {
   paragraphs: IParagraph[];
 }
 
-const MainStage = () => (
+const MainStage = (props) => (
   <CV>
     {({ header, nodes, paragraphs }: IRenderProps) => (
       <DraggableHOC>
-        <SelectionStateProvider>
           <ZoomState>
             {({zoomValue}) => (
               <StyledMainStage zoom={zoomValue}>
@@ -64,7 +63,6 @@ const MainStage = () => (
               </StyledMainStage>
             )}
           </ZoomState>
-        </SelectionStateProvider>
       </DraggableHOC>
     )}
   </CV>

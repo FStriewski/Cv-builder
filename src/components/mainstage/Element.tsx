@@ -3,21 +3,25 @@ import Draggable from 'react-draggable';
 import CVConsumer from 'src/data/Cvdata';
 import ModeSetting from '../../data/Mode';
 import { DragState } from '../../lib/DraggableHOC';
-import SelectionState, { SelectionStateProvider } from '../../lib/Selection';
-import { Element, Paragraph } from '../../styles/Element';
+import SelectionState from '../../lib/Selection';
+import { Node as StyledNode, TextElement as StyledTextElement } from '../../styles/Element';
 import { IParagraph, IPartialNode, Mode } from '../../types';
-import { TextElement } from './TextElement';
+import { DraftTextElement } from './TextElement';
 
-const ParagraphBox = props => (
+const ParagraphWrapper = props => (
   <SelectionState>
     {({ select, selectedId }) => (
       // tslint:disable:jsx-no-lambda
-      <Paragraph
+      <StyledTextElement
         onMouseDown={e => select(e, props.id)}
         selected={selectedId === props.id}
+        color={props.style.color}
       >
-        <TextElement selected={selectedId === props.id} {...props} />
-      </Paragraph>
+        <DraftTextElement
+          selected={selectedId === props.id}
+          {...props}
+        />
+      </StyledTextElement>
     )}
   </SelectionState>
 );
@@ -52,24 +56,23 @@ interface IRNode {
 
 export const Node = ({node, paragraphs}: IRNode) => {
   return (
-  <ModeSetting>
-    {({ mode }) =>
-      mode === Mode.DRAG ? (
-        <DraggableWrapper id={node.id}>
-          <Element className="box" {...node}>
-
+    <ModeSetting>
+      {({ mode }) =>
+        mode === Mode.DRAG ? (
+          <DraggableWrapper id={node.id}>
+            <StyledNode className="box" {...node}>
+              {paragraphs.map(paragraph => (
+                <ParagraphWrapper key={paragraph.id} {...paragraph} />
+              ))}
+            </StyledNode>
+          </DraggableWrapper>
+        ) : (
+          <StyledNode className="box" {...node}>
             {paragraphs.map(paragraph => (
-              <ParagraphBox key={paragraph.id} {...paragraph} />
+              <ParagraphWrapper key={paragraph.id} {...paragraph} />
             ))}
-          </Element>
-        </DraggableWrapper>
-      ) : (
-        <Element className="box" {...node}>
-          {paragraphs.map(paragraph => (
-            <ParagraphBox key={paragraph.id} {...paragraph} />
-          ))}
-        </Element>
-      )
-    }
-  </ModeSetting>
-)};
+          </StyledNode>
+        )
+      }
+    </ModeSetting>
+  );};

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ContentState, Editor, EditorState } from 'draft-js';
 
-import { InactiveText } from '../../styles/Text';
+import { InactiveText } from '../../styles/Element';
 import { ID, ITextElement } from '../../types';
 
 type Props = ITextElement & {
@@ -16,7 +16,7 @@ interface IState {
   editorParent: any;
 }
 
-export class TextElement extends React.Component<Props, IState> {
+export class DraftTextElement extends React.Component<Props, IState> {
   constructor(props: Props) {
     super(props);
     this.state = { editorState: EditorState.createEmpty(), editorParent: null };

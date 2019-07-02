@@ -8,8 +8,9 @@ import { ModeState } from './data/Mode';
 import { App as StyledApp } from './styles/App';
 import './styles/index';
 import { ICV, Position } from './types';
+import SelectionState, { SelectionStateProvider } from './lib/Selection';
 
-const DEFAULT_COLOR = '#ffffff';
+const DEFAULT_COLOR = '#000000';
 
 // Shall be provided by API
 const initialState: ICV = {
@@ -116,13 +117,19 @@ class App extends React.Component {
     return (
       <CVState json={initialState}>
         <ModeState>
-          <ZoomStateProvider>
-            <StyledApp>
-              <Header />
-              <SideBar />
-              <MainStage />
-            </StyledApp>
-          </ZoomStateProvider>
+          <SelectionStateProvider>
+            <SelectionState>
+              {({ selectedId }) => (
+                <ZoomStateProvider>
+                  <StyledApp>
+                    <Header />
+                    <SideBar selected={selectedId} />
+                    <MainStage selected={selectedId} />
+                  </StyledApp>
+                </ZoomStateProvider>
+              )}
+            </SelectionState>
+          </SelectionStateProvider>
         </ModeState>
       </CVState>
     );

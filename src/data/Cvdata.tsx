@@ -10,7 +10,7 @@ import {
 } from '../types';
 
 interface IState {
-  id: string;
+  id: ID;
   header: IHeader;
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
@@ -20,8 +20,8 @@ interface IRenderProps {
   header: IHeader;
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
-  updatePosition: (id, pos) => void;
-  updateColor: (id, color) => void;
+  updatePosition: (id:string, pos) => void;
+  updateColor: (id:string, color: string) => void;
 }
 
 interface IProps {
@@ -94,32 +94,35 @@ export class CVState extends React.Component<IProps, IState> {
     });
   };
 
-  getParagraph = (id: string) => this.state.paragraphs[id];
+  getParagraph = (id: ID) => ({
+    index: this.state.paragraphs.findIndex(p => p.id === id),
+    result: this.state.paragraphs.find(p => p.id === id)
+  });
 
-  setParagraph = (id: string, paragraph: IParagraph) => {
-    if (id in this.state.paragraphs) {
-      this.setState({
-        ...this.state,
-        paragraphs: {
-          ...this.state.paragraphs,
-          [id]: paragraph
-        }
-      });
-    }
+  setParagraph = (id: ID, paragraph: IParagraph, index: number) => {
+    console.log(index)
+    this.setState({
+      ...this.state,
+      paragraphs: Object.assign([], this.state.paragraphs, { [index]: paragraph })
+    });
   };
 
-  updateColor = (id, color) => {
-    const p = this.getParagraph(id);
+  updateColor = (id: ID, color: string) => {
+    const { index, result } = this.getParagraph(id);
+
+    if (!result) {
+      return;
+    }
+
     const updatedParagraph = {
-      ...p,
-      style: { ...p.style, color }
+      ...result,
+      style: { ...result.style, color }
     };
 
-    this.setParagraph(id, updatedParagraph);
+    this.setParagraph(id, updatedParagraph, index);
   };
 
   render() {
-    console.log(this.state);
     return (
       <Provider
         value={{
