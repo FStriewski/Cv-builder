@@ -19,6 +19,7 @@ interface IState {
 interface IRenderProps {
   header: IHeader;
   nodes: IPartialNode[];
+  deleteNode: (id: ID) => void;
   paragraphs: IParagraph[];
   updatePosition: (id:string, pos) => void;
   updateStyle: (id:string, property) => void;
@@ -94,6 +95,11 @@ export class CVState extends React.Component<IProps, IState> {
     });
   };
 
+  deleteNode = (id: ID) => this.setState({
+    ...this.state,
+    nodes: this.state.nodes.filter(node => node.id !== id)
+  })
+
   getParagraph = (id: ID) => ({
     index: this.state.paragraphs.findIndex(p => p.id === id),
     result: this.state.paragraphs.find(p => p.id === id)
@@ -127,6 +133,7 @@ export class CVState extends React.Component<IProps, IState> {
     return (
       <Provider
         value={{
+          deleteNode: this.deleteNode,
           header: this.state.header,
           nodes: this.state.nodes,
           paragraphs: this.state.paragraphs,

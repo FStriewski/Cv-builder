@@ -31,3 +31,26 @@ export const Button = styled.button`
     color: green;
   }
 `;
+
+export const FloatingButton = styled(Button)`
+  height: 25px;
+    width: 25px;
+    text-align: center;
+    justify: center;
+z-index: 10;
+    position: absolute; 
+    right: 5px;
+    top: 5px;
+float: right;
+  background-color: #FFFFFF;
+  background-clip: padding-box;
+  box-shadow: 0 4px 8px -2px  #F3F3F3;
+
+  &:hover {
+    background-color: ${COMMON.COLOR_1};
+  }
+
+  svg {
+    margin: 0 -4px;
+  }
+`;

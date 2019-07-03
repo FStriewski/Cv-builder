@@ -1,18 +1,32 @@
 import * as React from 'react';
-import { IHeader, IParagraph, IPartialNode, Position } from 'src/types';
+const { useState } = React;
+
+import { IHeader, IParagraph, IPartialNode, Position, ID } from 'src/types';
 import CV from '../../data/Cvdata';
 import { DraggableHOC } from '../../lib/DraggableHOC';
 import { MainStage as StyledMainStage } from '../../styles/MainStage';
 import { Col1, Col2 } from './Columns';
-import { Node } from './Element';
-import {ZoomState} from '../ZoomContext';
+import { Node } from './Node';
+import { ZoomState } from '../ZoomContext';
 
-interface IRNodes {
-  nodeCollection: IPartialNode[];
+interface INodeActions {
   paragraphs: IParagraph[];
+  deleteNode: (id: ID) => void;
+  activeNode: string;
+  setActiveNode: (id: string) => void;
 }
 
-const renderNodes = ({ nodeCollection, paragraphs }: IRNodes) => {
+interface IRNodes extends INodeActions {
+  nodeCollection: IPartialNode[];
+}
+
+const renderNodes = ({
+  nodeCollection,
+  paragraphs,
+  deleteNode,
+  activeNode,
+  setActiveNode
+}: IRNodes) => {
   if (!nodeCollection) {
     return <div />;
   }
@@ -28,43 +42,84 @@ const renderNodes = ({ nodeCollection, paragraphs }: IRNodes) => {
   return fullNodeCollection.map(item => {
     const { node, containedParagraphs } = item;
 
-    return <Node key={node.id} paragraphs={containedParagraphs} node={node} />;
+    return (
+      <Node
+        key={node.id}
+        paragraphs={containedParagraphs}
+        node={node}
+        setActiveNode={setActiveNode}
+        deleteNode={deleteNode}
+        isActive={node.id === activeNode}
+      />
+    );
   });
 };
 
 const sortNodes = (
   nodes: IPartialNode[],
   col: Position,
-  paragraphs: IParagraph[]
+  paragraphs: IParagraph[],
+  deleteNode: (id: ID) => void,
+  activeNode: string,
+  setActiveNode: (id: string) => void
 ) => {
   if (nodes === []) {
     return;
   }
   const nodeCollection = nodes.filter(node => node.col === col);
-  return renderNodes({ nodeCollection, paragraphs });
+  return renderNodes({
+    activeNode,
+    deleteNode,
+    nodeCollection,
+    paragraphs,
+    setActiveNode
+  });
 };
 
 interface IRenderProps {
   header: IHeader;
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
+  deleteNode: (id: ID) => void;
 }
 
-const MainStage = (props) => (
-  <CV>
-    {({ header, nodes, paragraphs }: IRenderProps) => (
-      <DraggableHOC>
+const MainStage = props => {
+  const [activeNode, setActiveNode] = useState('');
+  console.log(activeNode)
+  return (
+    <CV>
+      {({ header, nodes, paragraphs, deleteNode }: IRenderProps) => (
+        <DraggableHOC>
           <ZoomState>
-            {({zoomValue}) => (
+            {({ zoomValue }) => (
               <StyledMainStage zoom={zoomValue}>
-                <Col1>{sortNodes(nodes, Position.COL1, paragraphs)}</Col1>
-                <Col2>{sortNodes(nodes, Position.COL2, paragraphs)}</Col2>
+                <Col1>
+                  {sortNodes(
+                    nodes,
+                    Position.COL1,
+                    paragraphs,
+                    deleteNode,
+                    activeNode,
+                    setActiveNode
+                  )}
+                </Col1>
+                <Col2>
+                  {sortNodes(
+                    nodes,
+                    Position.COL2,
+                    paragraphs,
+                    deleteNode,
+                    activeNode,
+                    setActiveNode
+                  )}
+                </Col2>
               </StyledMainStage>
             )}
           </ZoomState>
-      </DraggableHOC>
-    )}
-  </CV>
-);
+        </DraggableHOC>
+      )}
+    </CV>
+  );
+};
 
 export default MainStage;
