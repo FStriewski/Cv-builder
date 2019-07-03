@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { IHeader, IParagraph, IPartialNode, Position } from 'src/types';
 import CV from '../../data/Cvdata';
-import { DraggableHOC, DragState } from '../../lib/DraggableHOC';
-import { SelectionStateProvider } from '../../lib/Selection';
+import { DraggableHOC } from '../../lib/DraggableHOC';
 import { MainStage as StyledMainStage } from '../../styles/MainStage';
 import { Col1, Col2 } from './Columns';
 import { Node } from './Element';
-import {ZoomState, ZoomStateProvider} from '../ZoomContext';
+import {ZoomState} from '../ZoomContext';
 
 interface IRNodes {
   nodeCollection: IPartialNode[];
@@ -58,8 +57,8 @@ const MainStage = (props) => (
           <ZoomState>
             {({zoomValue}) => (
               <StyledMainStage zoom={zoomValue}>
-                <Col2>{sortNodes(nodes, Position.SIDE, paragraphs)}</Col2>
-                <Col1>{sortNodes(nodes, Position.MAIN, paragraphs)}</Col1>
+                <Col1>{sortNodes(nodes, Position.COL1, paragraphs)}</Col1>
+                <Col2>{sortNodes(nodes, Position.COL2, paragraphs)}</Col2>
               </StyledMainStage>
             )}
           </ZoomState>

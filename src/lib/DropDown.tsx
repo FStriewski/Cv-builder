@@ -25,27 +25,33 @@ const Menu = (props) => {
 };
 
 export const Dropdown = ({ children, handler, autoClose }: IProps) => (
-  <Menu>
-    {({ menuVisible, toggleMenu }) => (
-      <StyledDropdown>
-        <OutsideClickHandler onOutsideClick={() => toggleMenu(false)}>
-          <React.Fragment>
-            {menuVisible
-              ? handler(toggleMenu, true)
-              : handler(toggleMenu, false)}
-            {menuVisible &&
-              (autoClose ? (
-                <DropdownContent onClick={toggleMenu}>
-                  {children}
-                </DropdownContent>
-              ) : (
-                <DropdownContent onClick={null}>{children}</DropdownContent>
-              ))}
-          </React.Fragment>
-        </OutsideClickHandler>
-      </StyledDropdown>
-    )}
-  </Menu>
-);
+         <Menu>
+           {({ menuVisible, toggleMenu }) => (
+             <StyledDropdown>
+               <OutsideClickHandler
+                 onOutsideClick={() => toggleMenu(false)}
+               >
+                 <React.Fragment>
+                   {menuVisible
+                     ? handler(toggleMenu, true)
+                     : handler(toggleMenu, false)}
+                   {menuVisible &&
+                     (autoClose ? (
+                       <DropdownContent
+                         onClick={() => toggleMenu(false)}
+                       >
+                         {children}
+                       </DropdownContent>
+                     ) : (
+                       <DropdownContent onClick={null}>
+                         {children}
+                       </DropdownContent>
+                     ))}
+                 </React.Fragment>
+               </OutsideClickHandler>
+             </StyledDropdown>
+           )}
+         </Menu>
+       );
 
 export default Dropdown;
