@@ -3,8 +3,52 @@ import { ICV, Position } from '../types';
 const DEFAULT_COLOR = '#000000';
 const DEFAULT_SIZE = 12;
 
-// Shall be provided by API
+const generateId = () => Math.floor(Math.random() * Math.random() * 100000)
 
+export const generateNode = () => {
+  const Id = generateId();
+  return {
+    col: -1,
+    id: `${Id}`,
+    paragraphs: [
+      {
+        content: 'Placeholder',
+        height: 100,
+        id: `${Id}` + 'P1',
+        left: 0,
+        name: 'generic',
+        style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+        top: 0,
+        width: 200
+      },
+      {
+        content: 'Placeholder',
+        height: 100,
+        id: `${Id}` + 'P2',
+        left: 0,
+        name: 'generic',
+        style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+        top: 0,
+        width: 200
+      },
+      {
+        content: 'Placeholder',
+        height: 100,
+        id: `${Id}` + 'P3',
+        left: 0,
+        name: 'generic',
+        style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+        top: 0,
+        width: 200
+      },
+    ],
+    x: 0,
+    y: 400
+  }
+}
+
+
+// Shall be provided by API
 export const initialState: ICV = {
   header: {
     email: 'email',

@@ -8,6 +8,7 @@ import { MainStage as StyledMainStage } from '../../styles/MainStage';
 import { Col1, Col2 } from './Columns';
 import { Node } from './Node';
 import { ZoomState } from '../ZoomContext';
+import { ColumnButton } from 'src/styles/Button';
 
 interface INodeActions {
   paragraphs: IParagraph[];
@@ -81,6 +82,8 @@ interface IRenderProps {
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
   deleteNode: (id: ID) => void;
+    addNode: (col: Position) => void;
+
 }
 
 const MainStage = props => {
@@ -88,7 +91,7 @@ const MainStage = props => {
   console.log(activeNode)
   return (
     <CV>
-      {({ header, nodes, paragraphs, deleteNode }: IRenderProps) => (
+      {({ header, nodes, paragraphs, deleteNode, addNode }: IRenderProps) => (
         <DraggableHOC>
           <ZoomState>
             {({ zoomValue }) => (
@@ -102,6 +105,7 @@ const MainStage = props => {
                     activeNode,
                     setActiveNode
                   )}
+                  <ColumnButton onClick={() => addNode(Position.COL1)} />
                 </Col1>
                 <Col2>
                   {sortNodes(
@@ -112,6 +116,7 @@ const MainStage = props => {
                     activeNode,
                     setActiveNode
                   )}
+                  <ColumnButton onClick={() => addNode(Position.COL2)} />
                 </Col2>
               </StyledMainStage>
             )}

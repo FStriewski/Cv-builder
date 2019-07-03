@@ -47,10 +47,21 @@ float: right;
   box-shadow: 0 4px 8px -2px  #F3F3F3;
 
   &:hover {
-    background-color: ${COMMON.COLOR_1};
+    background-color: ${SCHEMA_1.COLOR_3};
   }
 
   svg {
     margin: 0 -4px;
   }
+`;
+
+export const ColumnButton = styled(Button)`
+  height: 25px;
+    width: 25px;
+    text-align: center;
+    justify: center;
+z-index: 10;
+    position: absolute; 
+    right: 5px;
+    top: 5px;
 `;

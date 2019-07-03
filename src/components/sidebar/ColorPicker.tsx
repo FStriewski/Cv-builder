@@ -4,7 +4,7 @@ const { useState } = React;
 import { ColorTile, ColorCollection } from '../../styles/Colors';
 import CV from '../../data/Cvdata';
 
-const DEFAULT_COLORS: string[] = ['#000000', '#c0c0c0', '#ffffff', '#ff0000'];
+const DEFAULT_COLORS: string[] = ['#000000', '#c0c0c0', '#ffffff', '#ff0000', '#ffff00'];
 
 export const ColorList = (props) => {
   const [colorList, setColor] = useState(DEFAULT_COLORS);
