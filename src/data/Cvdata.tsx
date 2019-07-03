@@ -21,7 +21,7 @@ interface IRenderProps {
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
   updatePosition: (id:string, pos) => void;
-  updateColor: (id:string, color: string) => void;
+  updateStyle: (id:string, property) => void;
 }
 
 interface IProps {
@@ -107,19 +107,20 @@ export class CVState extends React.Component<IProps, IState> {
     });
   };
 
-  updateColor = (id: ID, color: string) => {
+  updateStyle = (id: ID, property) => {
+    console.log(property)
     const { index, result } = this.getParagraph(id);
 
     if (!result) {
       return;
     }
-
     const updatedParagraph = {
       ...result,
-      style: { ...result.style, color }
+      style: { ...result.style, ...property }
     };
 
     this.setParagraph(id, updatedParagraph, index);
+    console.log(this.state.paragraphs)
   };
 
   render() {
@@ -129,8 +130,8 @@ export class CVState extends React.Component<IProps, IState> {
           header: this.state.header,
           nodes: this.state.nodes,
           paragraphs: this.state.paragraphs,
-          updateColor: this.updateColor,
-          updatePosition: this.updateNodePosition
+          updatePosition: this.updateNodePosition,
+          updateStyle: this.updateStyle,
         }}
       >
         {this.props.children}

@@ -1,8 +1,8 @@
 export type ID = string;
 
 export enum Position {
-  SIDE,
-  MAIN
+  COL1,
+  COL2
 }
 
 export enum Mode {
@@ -18,7 +18,7 @@ export interface IDimensions {
 export interface ITextStyle {
   color: string;
   fontFamily?: string;
-  fontSize?: number;
+  fontSize: number;
 }
 
 export interface ITextElement  {

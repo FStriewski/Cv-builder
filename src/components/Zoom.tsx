@@ -23,7 +23,7 @@ const DEFAULT: IZoom = {
   value: 1
 };
 
-const ZOOMVALUES: IZoom[] = [
+const ZOOM_VALUES: IZoom[] = [
   {
     label: '25%',
     value: 0.25
@@ -55,7 +55,7 @@ const ZOOMVALUES: IZoom[] = [
 ];
 
 const getZoomValue = (value: number) => {
-  const zoomvalue = ZOOMVALUES.find(item => item.value === value) || DEFAULT;
+  const zoomvalue = ZOOM_VALUES.find(item => item.value === value) || DEFAULT;
   return zoomvalue.label;
 };
 
@@ -63,7 +63,6 @@ const getZoomValue = (value: number) => {
 export const Zoom = () => (
   <ZoomState>
     {({ zoomValue, updateZoomValue }) => (
-      <React.Fragment>
         <Dropdown
           autoClose={true}
           handler={onToggle => (
@@ -71,7 +70,7 @@ export const Zoom = () => (
           )}
         >
           <StyledDropdownList>
-            {ZOOMVALUES.map((zoom, index) => (
+            {ZOOM_VALUES.map((zoom, index) => (
               <DropdownListItem
                 key={index}
                 onClick={() => updateZoomValue(zoom.value)}
@@ -81,7 +80,6 @@ export const Zoom = () => (
             ))}
           </StyledDropdownList>
         </Dropdown>
-      </React.Fragment>
     )}
   </ZoomState>
 );

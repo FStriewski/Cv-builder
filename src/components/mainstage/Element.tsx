@@ -16,6 +16,7 @@ const ParagraphWrapper = props => (
         onMouseDown={e => select(e, props.id)}
         selected={selectedId === props.id}
         color={props.style.color}
+        fontSize={props.style.fontSize}
       >
         <DraftTextElement
           selected={selectedId === props.id}

@@ -23,7 +23,7 @@ export const ColorList = (props) => {
 
 export const ColorPicker = (props) => (
   <CV>
-    {({ updateColor }) => (
+    {({ updateStyle }) => (
       <ColorList>
         {({ colorList }) => (
           <ColorCollection>
@@ -33,7 +33,7 @@ export const ColorPicker = (props) => (
                   key={color}
                   color={color}
                   onClick={() => {
-                    updateColor(props.selectedElement, color);
+                    updateStyle(props.selectedElement, {color});
                   }}
                 />
               );
@@ -44,5 +44,3 @@ export const ColorPicker = (props) => (
     )}
   </CV>
 );
-
-export default ColorPicker;

@@ -30,11 +30,13 @@ export const TextElement = styled<
   {
     selected: boolean;
     color: string;
+    fontSize: number;
   },
   'div'
 >('div')`
   border: ${props => setBorder(props.selected)};
-  color: ${props => props.color};
+  color: ${props => props.color || '#000000'};
+  font-size: ${props => props.fontSize || 12}px;
   padding: 5px;
 `;
 
