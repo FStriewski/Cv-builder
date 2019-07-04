@@ -7,6 +7,7 @@ export const Header = styled.div`
   background-color: ${SCHEMA_1.COLOR_1};
   color: white;
 
+  height: 40px;
   align-items: center;
   display: flex;
   flex-shrink: 0;

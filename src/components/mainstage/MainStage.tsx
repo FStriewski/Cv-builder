@@ -9,6 +9,8 @@ import { Col1, Col2 } from './Columns';
 import { Node } from './Node';
 import { ZoomState } from '../ZoomContext';
 import { ColumnButton } from 'src/styles/Button';
+import { MdAddBox } from 'react-icons/md';
+
 
 interface INodeActions {
   paragraphs: IParagraph[];
@@ -88,7 +90,6 @@ interface IRenderProps {
 
 const MainStage = props => {
   const [activeNode, setActiveNode] = useState('');
-  console.log(activeNode)
   return (
     <CV>
       {({ header, nodes, paragraphs, deleteNode, addNode }: IRenderProps) => (
@@ -105,7 +106,9 @@ const MainStage = props => {
                     activeNode,
                     setActiveNode
                   )}
-                  <ColumnButton onClick={() => addNode(Position.COL1)} />
+                  <ColumnButton onClick={() => addNode(Position.COL1)}>
+                    <MdAddBox size={24} />
+                  </ColumnButton>
                 </Col1>
                 <Col2>
                   {sortNodes(
@@ -116,7 +119,9 @@ const MainStage = props => {
                     activeNode,
                     setActiveNode
                   )}
-                  <ColumnButton onClick={() => addNode(Position.COL2)} />
+                  <ColumnButton onClick={() => addNode(Position.COL2)}>
+                    <MdAddBox size={24} />
+                  </ColumnButton>
                 </Col2>
               </StyledMainStage>
             )}

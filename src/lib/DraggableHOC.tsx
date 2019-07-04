@@ -31,10 +31,6 @@ export class DraggableHOC extends React.Component {
            }
          };
 
-         componentDidUpdate(){
-           console.log('Drag fires')
-         }
-
          eventLogger = (e: MouseEvent, data: any) => {
            console.log('Event: ', e);
            console.log('Data: ', data);

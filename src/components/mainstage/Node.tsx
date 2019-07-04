@@ -10,6 +10,7 @@ import {
 import { IParagraph, IPartialNode, Mode, ID } from '../../types';
 import { ParagraphWrapper } from './Element';
 import { FloatingButton } from '../../styles/Button';
+import { MdDelete } from 'react-icons/md';
 
 const DraggableWrapper = props => (
   <CVConsumer>
@@ -69,7 +70,7 @@ export const Node = ({
           >
             {isActive && (
               <FloatingButton onClick={() => deleteNode(node.id)}>
-                {'X'}
+                <MdDelete size={24} />
               </FloatingButton>
             )}
 

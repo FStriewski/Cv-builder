@@ -21,7 +21,8 @@ export const ColorTile = styled.div`
 export const ColorCollection = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 8px -8px;
+  margin: 5px -5px;
+  padding: 8px;
   &:last-child {
     margin-bottom: 0px;
   }

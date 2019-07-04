@@ -18,7 +18,7 @@ export const Button = styled.button`
   background: transparent;
   cursor: pointer;
 
-    padding: 0 16px;
+  padding: 0 16px;
   box-shadow: none;
   text-align: center;
   white-space: nowrap;
@@ -27,41 +27,45 @@ export const Button = styled.button`
   color: ${COMMON.COLOR_1};
   margin: 10px;
 
+
+  `;
+
+export const FloatingButton = styled.button`
+  text-align: center;
+  justify: center;
+  z-index: 10;
+  position: absolute; 
+  right: 3px;
+  top: 3px;
+  float: right;
+  background: transparent;
+  color: grey;
+    transition: background 0.2s;
+  white-space: nowrap;
+border: none;
+  margin: 5px;
+
+
   &:hover {
-    color: green;
-  }
-`;
-
-export const FloatingButton = styled(Button)`
-  height: 25px;
-    width: 25px;
-    text-align: center;
-    justify: center;
-z-index: 10;
-    position: absolute; 
-    right: 5px;
-    top: 5px;
-float: right;
-  background-color: #FFFFFF;
-  background-clip: padding-box;
-  box-shadow: 0 4px 8px -2px  #F3F3F3;
-
-  &:hover {
-    background-color: ${SCHEMA_1.COLOR_3};
+  color: red;
   }
 
-  svg {
-    margin: 0 -4px;
-  }
-`;
+  `;
 
-export const ColumnButton = styled(Button)`
-  height: 25px;
-    width: 25px;
-    text-align: center;
-    justify: center;
-z-index: 10;
-    position: absolute; 
-    right: 5px;
-    top: 5px;
-`;
+export const ColumnButton = styled.button`
+  color: grey;
+    transition: background 0.2s;
+    border: none;
+  background: transparent;
+ outline:none;
+  white-space: nowrap;
+  z-index: 10;
+  position: fixed;
+  left: 3px;
+  top: 3px;
+    margin: 5px;
+
+    &:hover {
+  color: black;
+  }
+  `;
