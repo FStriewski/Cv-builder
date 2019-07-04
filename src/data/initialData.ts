@@ -1,7 +1,9 @@
 import { ICV, Position } from '../types';
 
 const DEFAULT_COLOR = '#000000';
+const INACTIVE_COLOR = '#c0c0c0';
 const DEFAULT_SIZE = 12;
+const BIG_SIZE = 18;
 
 const generateId = () => Math.floor(Math.random() * Math.random() * 100000)
 
@@ -17,7 +19,7 @@ export const generateNode = () => {
         id: `${Id}` + 'P1',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
         top: 0,
         width: 200
       },
@@ -38,6 +40,16 @@ export const generateNode = () => {
         left: 0,
         name: 'generic',
         style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+        top: 0,
+        width: 200
+      },
+      {
+        content: 'Placeholder',
+        height: 100,
+        id: `${Id}` + 'P3',
+        left: 0,
+        name: 'generic',
+        style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
         top: 0,
         width: 200
       },
@@ -70,7 +82,7 @@ export const initialState: ICV = {
           name: 'Header',
           style: {
             color: DEFAULT_COLOR,
-            fontSize: DEFAULT_SIZE,
+            fontSize: BIG_SIZE,
           },
           top: 0,
           width: 200
@@ -102,7 +114,7 @@ export const initialState: ICV = {
           id: 'Header',
           left: 0,
           name: 'Header',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
           top: 0,
           width: 200
         },
@@ -125,17 +137,17 @@ export const initialState: ICV = {
       id: 'N3',
       paragraphs: [
         {
-          content: 'Company',
+          content: 'Job Title',
           height: 100,
           id: 'N3P1',
           left: 0,
           name: 'eee',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
           top: 0,
           width: 200
         },
         {
-          content: 'Job Title',
+          content: 'Company',
           height: 100,
           id: 'N3P2',
           left: 0,
@@ -150,7 +162,7 @@ export const initialState: ICV = {
           id: 'N3P3',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },
@@ -173,17 +185,17 @@ export const initialState: ICV = {
       id: 'N4',
       paragraphs: [
         {
-          content: 'Company',
+          content: 'Job Title',
           height: 100,
           id: 'N4P1',
           left: 0,
           name: 'eee',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
           top: 0,
           width: 200
         },
         {
-          content: 'Job Title',
+          content: 'Company',
           height: 100,
           id: 'N4P2',
           left: 0,
@@ -198,7 +210,7 @@ export const initialState: ICV = {
           id: 'N4P3',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },
@@ -221,17 +233,17 @@ export const initialState: ICV = {
       id: 'N5',
       paragraphs: [
         {
-          content: 'Company',
+          content: 'Job Title',
           height: 100,
           id: 'N4P1',
           left: 0,
           name: 'eee',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
           top: 0,
           width: 200
         },
         {
-          content: 'Job Title',
+          content: 'Company',
           height: 100,
           id: 'N5P2',
           left: 0,
@@ -246,7 +258,7 @@ export const initialState: ICV = {
           id: 'N5P3',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
           top: 0,
           width: 200
         },
