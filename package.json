@@ -10,6 +10,7 @@
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
     "react-draggable": "^3.3.0",
+    "react-icons": "^3.7.0",
     "react-outside-click-handler": "^1.2.3",
     "react-scripts-ts": "^4.0.8"
   },
