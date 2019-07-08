@@ -99,15 +99,15 @@ export class CVState extends React.Component<IProps, IState> {
 
   addNode = (col: Position) => {
     const genericNode = generateNode();
-    const newNode = {...genericNode, col}
+    const newNode = { ...genericNode, col };
 
-    const Node = this.destructureNodes([newNode])
-    const Paragraphs = this.destructureParagraphs([newNode])
+    const Node = this.destructureNodes([newNode]);
+    const Paragraphs = this.destructureParagraphs([newNode]);
 
     this.setState({
       ...this.state,
-      nodes: this.state.nodes.concat( Node ),
-      paragraphs: this.state.paragraphs.concat( Paragraphs )
+      nodes: this.state.nodes.concat(Node),
+      paragraphs: this.state.paragraphs.concat(Paragraphs)
     });
   };
 
@@ -123,14 +123,12 @@ export class CVState extends React.Component<IProps, IState> {
   });
 
   setParagraph = (id: ID, paragraph: IParagraph, index: number) => {
-    console.log(id,index, paragraph)
     this.setState({
       ...this.state,
       paragraphs: Object.assign([], this.state.paragraphs, {
         [index]: paragraph
       })
     });
-    console.log(this.state.paragraphs[0].style)
   };
 
   updateStyle = (id: ID, property) => {
