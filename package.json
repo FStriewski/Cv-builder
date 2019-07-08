@@ -10,7 +10,6 @@
     "draft-js": "^0.10.5",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "jest": "^24.8.0",
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
     "react-draggable": "^3.3.0",

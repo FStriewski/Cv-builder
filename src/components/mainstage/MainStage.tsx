@@ -11,7 +11,6 @@ import { ZoomState } from '../ZoomContext';
 import { ColumnButton } from 'src/styles/Button';
 import { MdAddBox } from 'react-icons/md';
 
-
 interface INodeActions {
   paragraphs: IParagraph[];
   deleteNode: (id: ID) => void;
@@ -84,8 +83,7 @@ interface IRenderProps {
   nodes: IPartialNode[];
   paragraphs: IParagraph[];
   deleteNode: (id: ID) => void;
-    addNode: (col: Position) => void;
-
+  addNode: (col: Position) => void;
 }
 
 const MainStage = props => {
@@ -98,6 +96,9 @@ const MainStage = props => {
             {({ zoomValue }) => (
               <StyledMainStage zoom={zoomValue}>
                 <Col1>
+                  <ColumnButton onClick={() => addNode(Position.COL1)}>
+                    <MdAddBox size={24} />
+                  </ColumnButton>
                   {sortNodes(
                     nodes,
                     Position.COL1,
@@ -106,9 +107,6 @@ const MainStage = props => {
                     activeNode,
                     setActiveNode
                   )}
-                  <ColumnButton onClick={() => addNode(Position.COL1)}>
-                    <MdAddBox size={24} />
-                  </ColumnButton>
                 </Col1>
                 <Col2>
                   {sortNodes(

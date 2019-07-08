@@ -34,7 +34,7 @@ export const FloatingButton = styled.button`
   text-align: center;
   justify: center;
   z-index: 10;
-  position: absolute; 
+  position: relative; 
   right: 3px;
   top: 3px;
   float: right;
@@ -59,11 +59,13 @@ export const ColumnButton = styled.button`
   background: transparent;
  outline:none;
   white-space: nowrap;
-  z-index: 10;
+  z-index: 1000;
   position: fixed;
   left: 3px;
   top: 3px;
     margin: 5px;
+      position: absolute; 
+
 
     &:hover {
   color: black;

@@ -51,7 +51,7 @@ describe('CV Data - Nodes', () => {
     deleteNode(n.id);
     expect(data.mock.calls[2][0].nodes.length).toBe(lengthB4Deletion - 1);
   });
-});
+  });
 
 describe('CV Data - Nodes', () => {
   const data = mountCV();
