@@ -10,6 +10,7 @@
     "draft-js": "^0.10.5",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.8.0",
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
     "react-draggable": "^3.3.0",
@@ -35,41 +36,40 @@
     "ts-node": "^7.0.1",
     "typescript": "^3.1.6"
   },
-    "jest": {
-      "bail": true,
-      "verbose": false,
-      "roots": [
-        "__tests__",
-        "src"
-      ],
-      "moduleNameMapper": {
-        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__tests__/__mocks__/fileMock.js"
-      },
-      "transform": {
-        "^.+\\.tsx?$": "ts-jest",
-        "\\.(gql|graphql)$": "jest-transform-graphql"
-      },
-      "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
-      "collectCoverageFrom": [
-        "**/*.{ts,tsx}"
-      ],
-      "coveragePathIgnorePatterns": [
-        "/node_modules/",
-        "/src/styles/(.*).ts",
-        "/src/constants/styles.ts"
-      ],
-      "moduleFileExtensions": [
-        "ts",
-        "tsx",
-        "js",
-        "jsx",
-        "json",
-        "node"
-      ],
-      "setupFiles": [
-        "<rootDir>/jest.setup.ts"
-      ]
+  "jest": {
+    "bail": true,
+    "verbose": false,
+    "roots": [
+      "__tests__",
+      "src"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__tests__/__mocks__/fileMock.js"
     },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/src/styles/(.*).ts",
+      "/src/constants/styles.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "setupFiles": [
+      "<rootDir>/jest.setup.ts"
+    ]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",

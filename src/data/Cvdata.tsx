@@ -123,17 +123,17 @@ export class CVState extends React.Component<IProps, IState> {
   });
 
   setParagraph = (id: ID, paragraph: IParagraph, index: number) => {
-    console.log(index);
+    console.log(id,index, paragraph)
     this.setState({
       ...this.state,
       paragraphs: Object.assign([], this.state.paragraphs, {
         [index]: paragraph
       })
     });
+    console.log(this.state.paragraphs[0].style)
   };
 
   updateStyle = (id: ID, property) => {
-    console.log(property);
     const { index, result } = this.getParagraph(id);
 
     if (!result) {
@@ -145,7 +145,6 @@ export class CVState extends React.Component<IProps, IState> {
     };
 
     this.setParagraph(id, updatedParagraph, index);
-    console.log(this.state.paragraphs);
   };
 
   render() {
