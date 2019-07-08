@@ -146,6 +146,7 @@ export class CVState extends React.Component<IProps, IState> {
   };
 
   render() {
+    console.log(this.state.nodes)
     return (
       <Provider
         value={{

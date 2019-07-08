@@ -34,8 +34,8 @@ export const FloatingButton = styled.button`
   text-align: center;
   justify: center;
   z-index: 10;
-  position: relative; 
-  right: 3px;
+ position: absolute;
+   right: 3px;
   top: 3px;
   float: right;
   background: transparent;

@@ -46,7 +46,7 @@ export const generateNode = () => {
       {
         content: 'Placeholder',
         height: 100,
-        id: `${Id}` + 'P3',
+        id: `${Id}` + 'P4',
         left: 0,
         name: 'generic',
         style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
