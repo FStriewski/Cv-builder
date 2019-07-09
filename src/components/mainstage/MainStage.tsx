@@ -10,7 +10,6 @@ import { Node, DraggableWrapper } from './Node';
 import { ZoomState } from '../ZoomContext';
 import { ColumnButton } from 'src/styles/Button';
 import { MdAddBox } from 'react-icons/md';
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 
 
 interface INodeActions {
@@ -48,7 +47,7 @@ const renderNodes = ({
     const { node, containedParagraphs } = item;
 
     return (
-      // <DraggableWrapper key={node.id} id={node.id}>
+      <DraggableWrapper key={node.id} id={node.id}>
         <Node
           key={node.id}
           paragraphs={containedParagraphs}
@@ -57,7 +56,7 @@ const renderNodes = ({
           deleteNode={deleteNode}
           isActive={node.id === activeNode}
         />
-      // </DraggableWrapper>
+      </DraggableWrapper>
     );
   });
 };

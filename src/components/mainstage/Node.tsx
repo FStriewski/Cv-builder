@@ -11,7 +11,6 @@ import { IParagraph, IPartialNode, Mode, ID } from '../../types';
 import { ParagraphWrapper } from './Element';
 import { FloatingButton } from '../../styles/Button';
 import { MdDelete } from 'react-icons/md';
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 
 
 export const DraggableWrapper = props => (
@@ -64,13 +63,13 @@ export const Node = ({
     <ModeSetting>
       {({ mode }) =>
         mode === Mode.DRAG ? (
-          // <DraggableWrapper id={node.id}>
+          <DraggableWrapper id={node.id}>
             <StyledNode className="box" {...node}>
               {paragraphs.map(paragraph => (
                 <ParagraphWrapper key={paragraph.id} {...paragraph} />
               ))}
             </StyledNode>
-          // </DraggableWrapper>
+           </DraggableWrapper>
         ) : (
           <StyledNode
             className="box"

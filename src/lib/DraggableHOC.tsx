@@ -32,7 +32,7 @@ export class DraggableHOC extends React.Component {
     },
     defaultPosition: {
       x: 0,
-      y: 100
+      y: 0
     }
   };
 
@@ -59,13 +59,13 @@ export class DraggableHOC extends React.Component {
   onStop = (e, data) => {
     console.log(data)
     this.setState({ activeDrags: --this.state.activeDrags }, () => {
-      this.setState({
-        ...this.state,
-        defaultPosition: {
-          x: 0,
-          y: data.y
-        },
-      });
+      // this.setState({
+      //   ...this.state,
+      //   defaultPosition: {
+      //     x: 0,
+      //     y: data.y
+      //   },
+      // });
     });
   };
 
