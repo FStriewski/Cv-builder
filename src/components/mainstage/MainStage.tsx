@@ -54,7 +54,6 @@ const renderNodes = ({
           setActiveNode={setActiveNode}
           deleteNode={deleteNode}
           isActive={node.id === activeNode}
-          updateContent={updateContent}
         />
       </DraggableWrapper>
     );

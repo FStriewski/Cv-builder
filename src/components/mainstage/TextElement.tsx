@@ -6,7 +6,6 @@ import { ID, ITextElement } from '../../types';
 import CV from '../../data/Cvdata';
 
 type Props = ITextElement & {
-  autoFocus?: boolean;
   content?: string;
   id: ID;
   selected: boolean;
@@ -34,9 +33,6 @@ export class DraftTextElement extends React.Component<Props, IState> {
     });
   }
 
-  setText = (id: ID, content: string) => null; // set text in document
-  saveText = (id: ID, content: string) => null; // save text  to BE
-
   onChange = (
     editorState: EditorState,
     updateContent: (id: ID, content: string) => void,
@@ -56,9 +52,6 @@ export class DraftTextElement extends React.Component<Props, IState> {
                   editorState={this.state.editorState}
                   onChange={editor => {
                     const content = editor.getCurrentContent().getPlainText();
-                    if (content !== this.props.content) {
-                      this.setText(this.props.id, content);
-                    }
                     this.onChange(
                       editor,
                       updateContent,
