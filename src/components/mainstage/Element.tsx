@@ -1,6 +1,9 @@
 import * as React from 'react';
 import SelectionState from '../../lib/Selection';
-import { Node as StyledNode, TextElement as StyledTextElement } from '../../styles/Element';
+import {
+  Node as StyledNode,
+  TextElement as StyledTextElement
+} from '../../styles/Element';
 import { DraftTextElement } from './TextElement';
 
 export const ParagraphWrapper = props => (
@@ -12,11 +15,10 @@ export const ParagraphWrapper = props => (
         selected={selectedId === props.id}
         color={props.style.color}
         fontSize={props.style.fontSize}
+        fontWeight={props.style.fontWeight}
+        fontFamily={props.style.fontFamily}
       >
-        <DraftTextElement
-          selected={selectedId === props.id}
-          {...props}
-        />
+        <DraftTextElement selected={selectedId === props.id} {...props} />
       </StyledTextElement>
     )}
   </SelectionState>

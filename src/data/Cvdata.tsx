@@ -25,6 +25,7 @@ interface IRenderProps {
   paragraphs: IParagraph[];
   updatePosition: (id: string, pos) => void;
   updateStyle: (id: string, property) => void;
+  updateContent: (id: string, content: string) => void;
 }
 
 interface IProps {
@@ -145,6 +146,22 @@ export class CVState extends React.Component<IProps, IState> {
     this.setParagraph(id, updatedParagraph, index);
   };
 
+  updateContent = (id: ID, content) => {
+
+    console.log('hit', content)
+    const { index, result } = this.getParagraph(id);
+
+    if (!content) {
+      return;
+    }
+    const updatedParagraph = {
+      ...result,
+      content,
+    };
+
+    this.setParagraph(id, updatedParagraph, index);
+  };
+
   render() {
     console.log(this.state.nodes)
     return (
@@ -156,7 +173,8 @@ export class CVState extends React.Component<IProps, IState> {
           nodes: this.state.nodes,
           paragraphs: this.state.paragraphs,
           updatePosition: this.updateNodePosition,
-          updateStyle: this.updateStyle
+          updateStyle: this.updateStyle,
+          updateContent: this.updateContent
         }}
       >
         {this.props.children}

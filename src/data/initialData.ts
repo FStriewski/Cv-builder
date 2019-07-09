@@ -4,6 +4,8 @@ const DEFAULT_COLOR = '#000000';
 const INACTIVE_COLOR = '#c0c0c0';
 const DEFAULT_SIZE = 12;
 const BIG_SIZE = 18;
+const DEFAULT_FONT = 'inherit';
+const DEFAULT_WEIGHT = 200;
 
 const generateId = () => Math.floor(Math.random() * Math.random() * 100000)
 
@@ -19,7 +21,7 @@ export const generateNode = () => {
         id: `${Id}` + 'P1',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
+        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
         top: 0,
         width: 200
       },
@@ -29,7 +31,7 @@ export const generateNode = () => {
         id: `${Id}` + 'P2',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
         top: 0,
         width: 200
       },
@@ -39,7 +41,7 @@ export const generateNode = () => {
         id: `${Id}` + 'P3',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
         top: 0,
         width: 200
       },
@@ -49,7 +51,7 @@ export const generateNode = () => {
         id: `${Id}` + 'P4',
         left: 0,
         name: 'generic',
-        style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
+        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
         top: 0,
         width: 200
       },
@@ -83,6 +85,8 @@ export const initialState: ICV = {
           style: {
             color: DEFAULT_COLOR,
             fontSize: BIG_SIZE,
+            fontFamily: DEFAULT_FONT,
+            fontWeight: DEFAULT_WEIGHT,
           },
           top: 0,
           width: 200
@@ -96,6 +100,8 @@ export const initialState: ICV = {
           style: {
             color: DEFAULT_COLOR,
             fontSize: DEFAULT_SIZE,
+            fontFamily: DEFAULT_FONT,
+          fontWeight: DEFAULT_WEIGHT,
           },
           top: 0,
           width: 200
@@ -114,7 +120,11 @@ export const initialState: ICV = {
           id: 'Header',
           left: 0,
           name: 'Header',
-          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
+          style: {
+            color: DEFAULT_COLOR, fontSize: BIG_SIZE,
+            fontFamily: DEFAULT_FONT,
+            fontWeight: DEFAULT_WEIGHT,
+          },
           top: 0,
           width: 200
         },
@@ -124,7 +134,11 @@ export const initialState: ICV = {
           id: 'N2P2',
           left: 0,
           name: 'Stuff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: {
+            color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE,
+            fontFamily: DEFAULT_FONT,
+            fontWeight: DEFAULT_WEIGHT,
+          },
           top: 0,
           width: 200
         }
@@ -142,7 +156,8 @@ export const initialState: ICV = {
           id: 'N3P1',
           left: 0,
           name: 'eee',
-          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, 
+            fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -152,7 +167,8 @@ export const initialState: ICV = {
           id: 'N3P2',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT, 
+            fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -162,7 +178,8 @@ export const initialState: ICV = {
           id: 'N3P3',
           left: 0,
           name: 'fff',
-          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT,
+            fontWeight: DEFAULT_WEIGHT, },
           top: 0,
           width: 200
         },
@@ -172,7 +189,8 @@ export const initialState: ICV = {
           id: 'N3P4',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT,
+            fontWeight: DEFAULT_WEIGHT, },
           top: 0,
           width: 200
         },
@@ -190,7 +208,7 @@ export const initialState: ICV = {
           id: 'N4P1',
           left: 0,
           name: 'eee',
-          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -200,7 +218,7 @@ export const initialState: ICV = {
           id: 'N4P2',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -210,7 +228,7 @@ export const initialState: ICV = {
           id: 'N4P3',
           left: 0,
           name: 'fff',
-          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -220,7 +238,7 @@ export const initialState: ICV = {
           id: 'N4P4',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -235,10 +253,10 @@ export const initialState: ICV = {
         {
           content: 'Job Title',
           height: 100,
-          id: 'N4P1',
+          id: 'N5P1',
           left: 0,
           name: 'eee',
-          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -248,7 +266,7 @@ export const initialState: ICV = {
           id: 'N5P2',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -258,7 +276,7 @@ export const initialState: ICV = {
           id: 'N5P3',
           left: 0,
           name: 'fff',
-          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: INACTIVE_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },
@@ -268,7 +286,7 @@ export const initialState: ICV = {
           id: 'N5P4',
           left: 0,
           name: 'fff',
-          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, },
+          style: { color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT,},
           top: 0,
           width: 200
         },

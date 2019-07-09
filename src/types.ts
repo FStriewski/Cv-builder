@@ -1,3 +1,5 @@
+import { number } from "prop-types";
+
 export type ID = string;
 
 export enum Position {
@@ -19,6 +21,7 @@ export interface ITextStyle {
   color: string;
   fontFamily?: string;
   fontSize: number;
+  fontWeight?: number;
 }
 
 export interface ITextElement  {

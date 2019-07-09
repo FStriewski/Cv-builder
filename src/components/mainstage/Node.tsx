@@ -50,6 +50,7 @@ interface IRNode {
   deleteNode: (id: ID) => void;
   isActive: boolean;
   setActiveNode: (Id: string) => void;
+    updateContent: (id: string, content: string) => void;
 }
 
 export const Node = ({
@@ -57,7 +58,8 @@ export const Node = ({
   paragraphs,
   isActive,
   setActiveNode,
-  deleteNode
+  deleteNode,
+  updateContent
 }: IRNode) => {
   return (
     <ModeSetting>

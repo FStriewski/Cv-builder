@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { ContentState, Editor, EditorState } from 'draft-js';
 
-import { InactiveText } from '../../styles/Element';
+import { ActiveText, InactiveText } from '../../styles/Element';
 import { ID, ITextElement } from '../../types';
+import CV from '../../data/Cvdata';
 
 type Props = ITextElement & {
   autoFocus?: boolean;
@@ -19,7 +20,10 @@ interface IState {
 export class DraftTextElement extends React.Component<Props, IState> {
   constructor(props: Props) {
     super(props);
-    this.state = { editorState: EditorState.createEmpty(), editorParent: null };
+    this.state = {
+      editorState: EditorState.createEmpty(),
+      editorParent: null
+    };
   }
 
   componentDidMount() {
@@ -35,33 +39,44 @@ export class DraftTextElement extends React.Component<Props, IState> {
 
   onChange = (
     editorState: EditorState,
-    saveText: (id: ID, content: string) => void,
+    updateContent: (id: ID, content: string) => void,
     content: string,
     id: ID
-  ) => this.setState({ editorState }, () => saveText(id, content));
+  ) => this.setState({ editorState }, () => updateContent(id, content));
 
   /* tslint:disable: jsx-no-lambda */
   render() {
     return (
-      <React.Fragment>
-        {this.props.selected ? (
-          <Editor
-            editorState={this.state.editorState}
-            onChange={editor => {
-              const content = editor.getCurrentContent().getPlainText();
-              if (content !== this.props.content) {
-                this.setText(this.props.id, content);
-              }
-              this.onChange(editor, this.saveText, content, this.props.id);
-            }}
-            placeholder="Placeholder"
-          />
-        ) : (
-          <InactiveText>
-            {this.state.editorState.getCurrentContent().getPlainText()}
-          </InactiveText>
+      <CV>
+        {({ updateContent }) => (
+          <React.Fragment>
+            {this.props.selected ? (
+              <ActiveText>
+                <Editor
+                  editorState={this.state.editorState}
+                  onChange={editor => {
+                    const content = editor.getCurrentContent().getPlainText();
+                    if (content !== this.props.content) {
+                      this.setText(this.props.id, content);
+                    }
+                    this.onChange(
+                      editor,
+                      updateContent,
+                      content,
+                      this.props.id
+                    );
+                  }}
+                  placeholder="Placeholder"
+                />
+              </ActiveText>
+            ) : (
+              <InactiveText>
+                {this.state.editorState.getCurrentContent().getPlainText()}
+              </InactiveText>
+            )}
+          </React.Fragment>
         )}
-      </React.Fragment>
+      </CV>
     );
   }
 }

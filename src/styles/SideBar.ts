@@ -29,7 +29,7 @@ export const SideBarHeader = styled.div`
 `;
 
 export const Box = styled.div`
-  height: 100px;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;

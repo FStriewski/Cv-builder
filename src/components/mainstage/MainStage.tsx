@@ -16,6 +16,7 @@ interface INodeActions {
   deleteNode: (id: ID) => void;
   activeNode: string;
   setActiveNode: (id: string) => void;
+  updateContent: (id: string, content: string) => void;
 }
 
 interface IRNodes extends INodeActions {
@@ -27,7 +28,8 @@ const renderNodes = ({
   paragraphs,
   deleteNode,
   activeNode,
-  setActiveNode
+  setActiveNode,
+  updateContent
 }: IRNodes) => {
   if (!nodeCollection) {
     return <div />;
@@ -52,6 +54,7 @@ const renderNodes = ({
           setActiveNode={setActiveNode}
           deleteNode={deleteNode}
           isActive={node.id === activeNode}
+          updateContent={updateContent}
         />
       </DraggableWrapper>
     );
@@ -64,7 +67,8 @@ const sortNodes = (
   paragraphs: IParagraph[],
   deleteNode: (id: ID) => void,
   activeNode: string,
-  setActiveNode: (id: string) => void
+  setActiveNode: (id: string) => void,
+  updateContent: (id: string, content: string) => void
 ) => {
   if (nodes === []) {
     return;
@@ -75,7 +79,8 @@ const sortNodes = (
     deleteNode,
     nodeCollection,
     paragraphs,
-    setActiveNode
+    setActiveNode,
+    updateContent
   });
 };
 
@@ -85,42 +90,52 @@ interface IRenderProps {
   paragraphs: IParagraph[];
   deleteNode: (id: ID) => void;
   addNode: (col: Position) => void;
+  updateContent: (id: string, content: string) => void;
 }
 
 const MainStage = props => {
   const [activeNode, setActiveNode] = useState('');
   return (
     <CV>
-      {({ header, nodes, paragraphs, deleteNode, addNode }: IRenderProps) => (
+      {({
+        header,
+        nodes,
+        paragraphs,
+        deleteNode,
+        addNode,
+        updateContent
+      }: IRenderProps) => (
         <ZoomState>
           {({ zoomValue }) => (
             <StyledMainStage zoom={zoomValue} id="print">
-                <Col1 >
-                  <ColumnButton onClick={() => addNode(Position.COL1)}>
-                    <MdAddBox size={24} />
-                  </ColumnButton>
-                  {sortNodes(
-                    nodes,
-                    Position.COL1,
-                    paragraphs,
-                    deleteNode,
-                    activeNode,
-                    setActiveNode
-                  )}
-                </Col1>
-                <Col2>
-                  {sortNodes(
-                    nodes,
-                    Position.COL2,
-                    paragraphs,
-                    deleteNode,
-                    activeNode,
-                    setActiveNode
-                  )}
-                  <ColumnButton onClick={() => addNode(Position.COL2)}>
-                    <MdAddBox size={24} />
-                  </ColumnButton>
-                </Col2>
+              <Col1>
+                <ColumnButton onClick={() => addNode(Position.COL1)}>
+                  <MdAddBox size={24} />
+                </ColumnButton>
+                {sortNodes(
+                  nodes,
+                  Position.COL1,
+                  paragraphs,
+                  deleteNode,
+                  activeNode,
+                  setActiveNode,
+                  updateContent
+                )}
+              </Col1>
+              <Col2>
+                {sortNodes(
+                  nodes,
+                  Position.COL2,
+                  paragraphs,
+                  deleteNode,
+                  activeNode,
+                  setActiveNode,
+                  updateContent
+                )}
+                <ColumnButton onClick={() => addNode(Position.COL2)}>
+                  <MdAddBox size={24} />
+                </ColumnButton>
+              </Col2>
             </StyledMainStage>
           )}
         </ZoomState>

@@ -7,6 +7,8 @@ import { Mode } from '../../types';
 import { ColorPicker } from './ColorPicker';
 
 import { FontSize } from './FontSize';
+import { FontFamily } from './FontFamily';
+import { FontWeight } from './FontWeight';
 
 /* tslint:disable: jsx-no-lambda */
 const SideBar = props => (
@@ -36,6 +38,11 @@ const SideBar = props => (
             <Box>
               <span>Font Style</span>
               <FontSize selectedElement={props.selected} />
+  
+              <span>Font Family</span>
+              <FontFamily selectedElement={props.selected} />
+              <span>Font Weight</span>
+              <FontWeight selectedElement={props.selected} />
             </Box>
           </div>
         )}
