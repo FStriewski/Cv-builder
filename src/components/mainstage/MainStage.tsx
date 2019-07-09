@@ -95,10 +95,10 @@ const MainStage = props => {
   return (
     <CV>
       {({ header, nodes, paragraphs, deleteNode, addNode }: IRenderProps) => (
-          <ZoomState>
-            {({ zoomValue }) => (
-              <StyledMainStage zoom={zoomValue}>
-                <Col1>
+        <ZoomState>
+          {({ zoomValue }) => (
+            <StyledMainStage zoom={zoomValue} id="print">
+                <Col1 >
                   <ColumnButton onClick={() => addNode(Position.COL1)}>
                     <MdAddBox size={24} />
                   </ColumnButton>
@@ -124,9 +124,9 @@ const MainStage = props => {
                     <MdAddBox size={24} />
                   </ColumnButton>
                 </Col2>
-              </StyledMainStage>
-            )}
-          </ZoomState>
+            </StyledMainStage>
+          )}
+        </ZoomState>
       )}
     </CV>
   );

@@ -10,9 +10,25 @@ import './styles/index';
 import SelectionState, { SelectionStateProvider } from './lib/Selection';
 import { initialState } from './data/initialData';
 import { DraggableHOC } from './lib/DraggableHOC';
+import * as jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+
 
 class App extends React.Component {
-  public render() {
+
+  printDocument = () => {
+    const input = document.getElementById('print');
+    console.log(input);
+    html2canvas(input).then(canvas => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, 'JPEG', 0, 0);
+      // pdf.output('dataurlnewwindow');
+      pdf.save('download.pdf');
+    });
+  };
+
+  render() {
     return (
       <CVState json={initialState}>
         <ModeState>
@@ -22,9 +38,10 @@ class App extends React.Component {
                 {({ selectedId }) => (
                   <ZoomStateProvider>
                     <StyledApp>
-                      <Header />
+                      <Header print={this.printDocument} />
                       <SideBar selected={selectedId} />
-                      <MainStage selected={selectedId} />
+                      <MainStage
+                      />
                     </StyledApp>
                   </ZoomStateProvider>
                 )}
