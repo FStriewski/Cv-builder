@@ -28,12 +28,12 @@ export const FloatingButton = styled.button`
   text-align: center;
   justify: center;
   z-index: 10;
-  position: absolute;
-   right: 3px;
-  top: 3px;
+  position: relative;
+   right: -4px;
+  top: -2px;
   float: right;
   background: transparent;
-  color: grey;
+  color: ${SCHEMA_1.COLOR_3};
   transition: background 0.2s;
   white-space: nowrap;
   border: none;
@@ -44,17 +44,16 @@ export const FloatingButton = styled.button`
 `;
 
 export const ColumnButton = styled.button`
-  color: grey;
+  color: ${SCHEMA_1.COLOR_3};
   transition: background 0.2s;
   border: none;
   background: transparent;
   outline:none;
   white-space: nowrap;
-  z-index: 1000;
+  z-index: 100;
   position: fixed;
-  left: 3px;
-  top: 3px;
-  margin: 5px;
+  left: -5px;
+  top: 1px;
   position: absolute; 
 
 
@@ -63,7 +62,7 @@ export const ColumnButton = styled.button`
   }
 `;
 
-export const HeaderButton = styled.button`
+export const HeaderButton = styled<{ active?: boolean }, 'button'>('button')`
   color: white;
   transition: background 0.2s;
   border: none;
@@ -73,7 +72,9 @@ export const HeaderButton = styled.button`
   z-index: 100;
   height: 100%;
   width: 100%;
-    background-color: ${SCHEMA_1.COLOR_3};
+    background-color: ${props => (props.active ? SCHEMA_1.COLOR_1 : SCHEMA_1.COLOR_3)};
+
+    color: ${props => (props.active ? SCHEMA_1.COLOR_3 : SCHEMA_1.COLOR_1)};
 
   &:hover {
   color: grey;

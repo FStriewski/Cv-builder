@@ -14,10 +14,7 @@ export const Node = styled<
   height: 150px;
   background-color: white;
   border: 1px solid ${SCHEMA_1.COLOR_3};
-  text-align: center;
   z-index: 10;
-    // position: absolute;
-
 `;
 
 const setBorder = (selected: boolean) => {
@@ -34,6 +31,8 @@ export const TextElement = styled<
   },
   'div'
 >('div')`
+  padding-left: 20px;
+  padding-top: 5px;
   border: ${props => setBorder(props.selected)};
   color: ${props => props.color || '#000000'};
   font-size: ${props => props.fontSize || 12}px;
@@ -43,6 +42,7 @@ export const TextElement = styled<
 export const InactiveText = styled.div`
   position: relative;
   white-space: pre-wrap;
+    margin: 2px 25px;
 `;
 
 // export const DraftTextElement = styled.div`

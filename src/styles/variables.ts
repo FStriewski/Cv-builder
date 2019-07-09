@@ -4,9 +4,12 @@ export const COMMON = {
 };
 
 export const SCHEMA_1 = {
-  COLOR_1: 'rgba(59, 65, 77, 1)', // Dark_GREY
-  COLOR_2: 'rgba(41, 44, 52, 1)', //  LIGHT_GREY
-  COLOR_3: 'rgba(84, 154, 185, 1)' // LIGHT_BLUE
+  COLOR_3: 'rgba(59, 65, 77, 1)', // Dark_GREY
+  COLOR_4: 'rgba(41, 44, 52, 1)', //  LIGHT_GREY
+  COLOR_2: 'rgba(84, 154, 185, 1)', // LIGHT_BLUE
+  COLOR_5: 'rgba(243, 243, 243, 0.5)', // LIGHT_GREY
+  COLOR_1: '#F7F9FB' // Eggshell
+
 };
 export const SCHEMA_2 = {
   COLOR_1: '#0F1626', // Black

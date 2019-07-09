@@ -9,13 +9,14 @@ export const Dropdown = styled.div`
 
 export const DropdownContent = styled.div`
   position: absolute;
-  min-width: 170px;
+  min-width: 100px;
   overflow: hidden;
   background-color: ${COMMON.COLOR_1};
   box-shadow: 0 1px 8px 0 ${SCHEMA_1.COLOR_3};
   border-radius: 5px;
   background-clip: padding-box;
   z-index: 100;
+  text-align: center;
   `;
 
 export const Zooming = styled.div`
@@ -44,18 +45,17 @@ export const Zooming = styled.div`
 export const DropdownListItem = styled.li<{ enabled?: boolean }>`
   padding: 0 16px;
   margin: 0;
-  height: 35px;
+  height: 25px;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
   color: ${COMMON.COLOR_2};
-  font-size: 14px;
  
   &:hover {
     background-color: ${SCHEMA_1.COLOR_1};
     cursor: pointer;
-    color: ${SCHEMA_1.COLOR_1};
+    color: ${SCHEMA_1.COLOR_3};
   }
   list-style: none;
 `;

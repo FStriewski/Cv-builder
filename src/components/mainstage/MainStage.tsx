@@ -11,7 +11,6 @@ import { ZoomState } from '../ZoomContext';
 import { ColumnButton } from 'src/styles/Button';
 import { MdAddBox } from 'react-icons/md';
 
-
 interface INodeActions {
   paragraphs: IParagraph[];
   deleteNode: (id: ID) => void;
@@ -23,7 +22,6 @@ interface IRNodes extends INodeActions {
   nodeCollection: IPartialNode[];
 }
 
-// Sortable Container
 const renderNodes = ({
   nodeCollection,
   paragraphs,
@@ -45,7 +43,6 @@ const renderNodes = ({
 
   return fullNodeCollection.map(item => {
     const { node, containedParagraphs } = item;
-
     return (
       <DraggableWrapper key={node.id} id={node.id}>
         <Node

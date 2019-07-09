@@ -57,7 +57,7 @@ export class DraggableHOC extends React.Component {
   };
 
   onStop = (e, data) => {
-    console.log(data)
+    // console.log(data)
     this.setState({ activeDrags: --this.state.activeDrags }, () => {
       // this.setState({
       //   ...this.state,
@@ -103,7 +103,7 @@ export class DraggableHOC extends React.Component {
       onStart: this.onStart,
       onStop: this.onStop
     };
-    console.log(this.state.defaultPosition)
+    // console.log(this.state.defaultPosition)
     return (
       <Provider
         value={{
