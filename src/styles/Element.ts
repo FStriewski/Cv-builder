@@ -8,15 +8,15 @@ export const Node = styled<
   },
   'div'
 >('div')`
-x:${props => props.x};
-y:${props => props.y};
+// x:${props => props.x};
+// y:${props => props.y};
   width: 100%;
   height: 150px;
   background-color: white;
   border: 1px solid ${SCHEMA_1.COLOR_3};
   text-align: center;
   z-index: 10;
-    position: relative;
+    // position: absolute;
 
 `;
 

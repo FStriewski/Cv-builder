@@ -11,15 +11,25 @@ import { IParagraph, IPartialNode, Mode, ID } from '../../types';
 import { ParagraphWrapper } from './Element';
 import { FloatingButton } from '../../styles/Button';
 import { MdDelete } from 'react-icons/md';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 
-const DraggableWrapper = props => (
+
+export const DraggableWrapper = props => (
   <CVConsumer>
     {({ updatePosition }) => (
       <DragState>
-        {({ dragHandlers, handleDrag, deltaPosition, setInitialPos }) => (
+        {({
+          dragHandlers,
+          handleDrag,
+          deltaPosition,
+          setInitialPos,
+          defaultPosition
+        }) => {
+          return (
           <Draggable
             bounds="parent"
             grid={[20, 20]}
+            defaultPosition={defaultPosition}
             onDrag={(e, ui) => {
               handleDrag(e, ui),
                 updatePosition(props.id, deltaPosition),
@@ -29,7 +39,7 @@ const DraggableWrapper = props => (
           >
             {props.children}
           </Draggable>
-        )}
+        )}}
       </DragState>
     )}
   </CVConsumer>
@@ -54,13 +64,13 @@ export const Node = ({
     <ModeSetting>
       {({ mode }) =>
         mode === Mode.DRAG ? (
-          <DraggableWrapper id={node.id}>
+          // <DraggableWrapper id={node.id}>
             <StyledNode className="box" {...node}>
               {paragraphs.map(paragraph => (
                 <ParagraphWrapper key={paragraph.id} {...paragraph} />
               ))}
             </StyledNode>
-          </DraggableWrapper>
+          // </DraggableWrapper>
         ) : (
           <StyledNode
             className="box"

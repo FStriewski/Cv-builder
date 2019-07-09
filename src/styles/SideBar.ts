@@ -22,7 +22,7 @@ export const SideBarHeader = styled.div`
   border-bottom: 1px solid ${SCHEMA_1.COLOR_2};
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 30px;
   font-size: 14px;
   position: relative;
   z-index: 2;

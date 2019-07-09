@@ -6,10 +6,12 @@ import CV from '../../data/Cvdata';
 import { DraggableHOC } from '../../lib/DraggableHOC';
 import { MainStage as StyledMainStage } from '../../styles/MainStage';
 import { Col1, Col2 } from './Columns';
-import { Node } from './Node';
+import { Node, DraggableWrapper } from './Node';
 import { ZoomState } from '../ZoomContext';
 import { ColumnButton } from 'src/styles/Button';
 import { MdAddBox } from 'react-icons/md';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+
 
 interface INodeActions {
   paragraphs: IParagraph[];
@@ -22,6 +24,7 @@ interface IRNodes extends INodeActions {
   nodeCollection: IPartialNode[];
 }
 
+// Sortable Container
 const renderNodes = ({
   nodeCollection,
   paragraphs,
@@ -45,14 +48,16 @@ const renderNodes = ({
     const { node, containedParagraphs } = item;
 
     return (
-      <Node
-        key={node.id}
-        paragraphs={containedParagraphs}
-        node={node}
-        setActiveNode={setActiveNode}
-        deleteNode={deleteNode}
-        isActive={node.id === activeNode}
-      />
+      // <DraggableWrapper key={node.id} id={node.id}>
+        <Node
+          key={node.id}
+          paragraphs={containedParagraphs}
+          node={node}
+          setActiveNode={setActiveNode}
+          deleteNode={deleteNode}
+          isActive={node.id === activeNode}
+        />
+      // </DraggableWrapper>
     );
   });
 };
@@ -91,7 +96,6 @@ const MainStage = props => {
   return (
     <CV>
       {({ header, nodes, paragraphs, deleteNode, addNode }: IRenderProps) => (
-        <DraggableHOC>
           <ZoomState>
             {({ zoomValue }) => (
               <StyledMainStage zoom={zoomValue}>
@@ -124,7 +128,6 @@ const MainStage = props => {
               </StyledMainStage>
             )}
           </ZoomState>
-        </DraggableHOC>
       )}
     </CV>
   );

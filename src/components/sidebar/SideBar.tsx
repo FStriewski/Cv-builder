@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SideBar as StyledSideBar } from '../../styles/SideBar';
-import { Button } from '../../styles/Button';
+import { HeaderButton } from '../../styles/Button';
 import { SideBarHeader } from './Header';
 import ModeSetting, { ModeState } from 'src/data/Mode';
 import { Mode } from '../../types';
@@ -14,10 +14,9 @@ const SideBar = props => (
     {({ mode, updateMode }) => (
       <StyledSideBar>
         <SideBarHeader>
-          <Button onClick={() => updateMode(Mode.EDIT)}>Edit</Button>
-          <Button onClick={() => updateMode(Mode.DRAG)}>Drag</Button>
+          <HeaderButton onClick={() => updateMode(Mode.EDIT)}>Edit</HeaderButton>
+          <HeaderButton onClick={() => updateMode(Mode.DRAG)}>Drag</HeaderButton>
         </SideBarHeader>
-
         <ColorPicker selectedElement={props.selected} />
         <FontSize selectedElement={props.selected} />
       </StyledSideBar>
