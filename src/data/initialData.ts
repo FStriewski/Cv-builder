@@ -21,7 +21,12 @@ export const generateNode = () => {
         id: `${Id}` + 'P1',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
+        style: {
+          color: DEFAULT_COLOR,
+          fontSize: BIG_SIZE,
+          fontFamily: DEFAULT_FONT,
+          fontWeight: DEFAULT_WEIGHT
+        },
         top: 0,
         width: 200
       },
@@ -31,7 +36,12 @@ export const generateNode = () => {
         id: `${Id}` + 'P2',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
+        style: {
+          color: DEFAULT_COLOR,
+          fontSize: DEFAULT_SIZE,
+          fontFamily: DEFAULT_FONT,
+          fontWeight: DEFAULT_WEIGHT
+        },
         top: 0,
         width: 200
       },
@@ -41,7 +51,12 @@ export const generateNode = () => {
         id: `${Id}` + 'P3',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
+        style: {
+          color: INACTIVE_COLOR,
+          fontSize: DEFAULT_SIZE,
+          fontFamily: DEFAULT_FONT,
+          fontWeight: DEFAULT_WEIGHT
+        },
         top: 0,
         width: 200
       },
@@ -51,14 +66,19 @@ export const generateNode = () => {
         id: `${Id}` + 'P4',
         left: 0,
         name: 'generic',
-        style: { color: DEFAULT_COLOR, fontSize: BIG_SIZE, fontFamily: DEFAULT_FONT, fontWeight: DEFAULT_WEIGHT },
+        style: {
+          color: DEFAULT_COLOR,
+          fontSize: DEFAULT_SIZE,
+          fontFamily: DEFAULT_FONT,
+          fontWeight: DEFAULT_WEIGHT
+        },
         top: 0,
         width: 200
-      },
+      }
     ],
     x: 0,
     y: 400
-  }
+  };
 }
 
 

@@ -1,7 +1,9 @@
 import styled from './styled-components';
-import { COMMON, SCHEMA_1, SCHEMA_2, SCHEMA_3 } from './variables'
 
 export const App = styled.div`
-font-family: sans-serif;
-font-size: 12px;
+  font-family: sans-serif;
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
+  height: 93vh;
 `;

@@ -1,7 +1,6 @@
 import styled from './styled-components';
 import { COMMON, SCHEMA_1, SCHEMA_2, SCHEMA_3 } from './variables';
 
-
 export const ColorTile = styled.div`
   width: 25px;
   height: 25px;
@@ -15,12 +14,11 @@ export const ColorTile = styled.div`
   border: 1px solid ${SCHEMA_1.COLOR_3};
   border-radius: 15px;
   transition: 0.1s ease-in;
-  // box-shadow: inset 0 0 0 1px ${SCHEMA_1.COLOR_1};
   cursor: pointer;
 `;
 
 export const ColorCollection = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
+  padding: 15px 0;
 `;

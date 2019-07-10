@@ -8,8 +8,8 @@ export const Node = styled<
   },
   'div'
 >('div')`
-// x:${props => props.x};
-// y:${props => props.y};
+  x:${props => props.x};
+  y:${props => props.y};
   width: 100%;
   min-height: 150px;
   background-color: white;
@@ -46,38 +46,10 @@ export const TextElement = styled<
 export const InactiveText = styled.div`
   position: relative;
   white-space: pre-wrap;
-    margin: 2px 25px;
+  margin: 2px 25px;
 `;
 export const ActiveText = styled.div`
   position: relative;
   white-space: pre-wrap;
-    margin: 2px 25px;
+  margin: 2px 25px;
 `;
-
-// export const DraftTextElement = styled.div`
-//   /* fixes draft-js placeholder cursor position: */
-//   .public-DraftEditorPlaceholder-root {
-//     position: absolute;
-//     z-index: 0;
-//     margin-left: auto;
-//     margin-right: auto;
-//     left: 0;
-//     right: 0;
-//   }
-
-//   /* fixes draft-js placeholder editing */
-//   .public-DraftEditor-content[contenteditable='true'] {
-//     -webkit-user-modify: read-write-plaintext-only;
-//   }
-
-//   .DraftEditor-editorContainer {
-//     background-color: rgba(255, 255, 255, 0);
-//     border-left: 0.1px solid transparent;
-//     position: relative;
-//     z-index: 1;
-//   }
-
-//   .public-DraftEditorPlaceholder-hasFocus {
-//     color: #bdc1c9;
-//   }
-// `;

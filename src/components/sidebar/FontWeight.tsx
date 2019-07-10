@@ -45,7 +45,7 @@ export const FontWeight = props => (
     {({ updateStyle }) => (
       <Dropdown
         autoClose={true}
-        handler={onToggle => <Button onClick={onToggle}>Size</Button>}
+        handler={onToggle => <Button onClick={onToggle}>Weight</Button>}
       >
         <StyledDropdownList>
           {FONT_WEIGHTS.map((font, index) => (

@@ -1,11 +1,16 @@
 import styled from './styled-components';
 
-export const MainStage = styled<
-  { zoom: number },
-  'div'
->('div')`
-  height: calc(100vh - 60px);
+export const Container = styled.div`
   display: flex;
-  flex-wrap: nowrap;
+  height: 100%;
+`;
+
+export const MainStage = styled<{ zoom: number }, 'div'>('div')`
+  width: 195%;
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
   transform: scale(${props => props.zoom});
 `;

@@ -6,6 +6,7 @@ import SideBar from './components/sidebar/SideBar';
 import { CVState } from './data/Cvdata';
 import { ModeState } from './data/Mode';
 import { App as StyledApp } from './styles/App';
+import { Container } from './styles/MainStage';
 import './styles/index';
 import SelectionState, { SelectionStateProvider } from './lib/Selection';
 import { initialState } from './data/initialData';
@@ -39,9 +40,11 @@ class App extends React.Component {
                   <ZoomStateProvider>
                     <StyledApp>
                       <Header print={this.printDocument} />
+                      <Container>
                       <SideBar selected={selectedId} />
                       <MainStage
                       />
+                      </Container>
                     </StyledApp>
                   </ZoomStateProvider>
                 )}

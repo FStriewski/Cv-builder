@@ -6,7 +6,6 @@ export const Header = styled.div`
   border-bottom: 1px solid ${SCHEMA_1.COLOR_3};
   background-color: ${SCHEMA_1.COLOR_1};
   color: white;
-
   height: 40px;
   align-items: center;
   display: flex;
@@ -15,6 +14,6 @@ export const Header = styled.div`
   justify-content: space-between;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   user-select: none;
 `;

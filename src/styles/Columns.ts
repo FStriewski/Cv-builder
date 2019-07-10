@@ -1,5 +1,4 @@
 import styled from './styled-components';
-import { COMMON, SCHEMA_1, SCHEMA_2, SCHEMA_3 } from './variables';
 
 export const Column = styled<
   {
@@ -7,22 +6,21 @@ export const Column = styled<
   },
   'div'
 >('div')`
-  height: calc(100vh - 60px);
-  background-color: #fff;
+  height: calc(100vh-45px;);
   flex-shrink: 0;
   position: relative;
   z-index: 2;
 
-  width: calc(${props => props.width}% - 0px);
+  width: calc(${props => props.width}% - 2px);
   float: left;
 
   overflow: hidden;
   border: 1px dotted grey;
   background-color: #f5f5f5;
+  margin-top: -2px;
 
-  first-child{
+  :first-child{
     border-right: none;
-    background-color: red;
   }
 
 `;

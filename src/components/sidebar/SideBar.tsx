@@ -32,15 +32,18 @@ const SideBar = props => (
         {mode === Mode.EDIT && (
           <div>
             <Box>
-              <span>Font Color</span>
+              <span>Font Colors</span>
               <ColorPicker selectedElement={props.selected} />
             </Box>
             <Box>
               <span>Font Style</span>
               <FontSize selectedElement={props.selected} />
-  
+            </Box>
+            <Box>
               <span>Font Family</span>
               <FontFamily selectedElement={props.selected} />
+            </Box>
+            <Box>
               <span>Font Weight</span>
               <FontWeight selectedElement={props.selected} />
             </Box>
