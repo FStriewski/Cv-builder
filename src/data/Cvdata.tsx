@@ -147,8 +147,6 @@ export class CVState extends React.Component<IProps, IState> {
   };
 
   updateContent = (id: ID, content) => {
-
-    console.log('hit', content)
     const { index, result } = this.getParagraph(id);
 
     if (!content) {

@@ -116,7 +116,22 @@ export const initialState: ICV = {
           height: 100,
           id: 'N1P2',
           left: 0,
-          name: 'Stuff',
+          name: 'Details',
+          style: {
+            color: DEFAULT_COLOR,
+            fontSize: DEFAULT_SIZE,
+            fontFamily: DEFAULT_FONT,
+          fontWeight: DEFAULT_WEIGHT,
+          },
+          top: 0,
+          width: 200
+        },
+        {
+          content: 'Latin [5]',
+          height: 100,
+          id: 'N1P3',
+          left: 0,
+          name: 'Details',
           style: {
             color: DEFAULT_COLOR,
             fontSize: DEFAULT_SIZE,
@@ -149,11 +164,11 @@ export const initialState: ICV = {
           width: 200
         },
         {
-          content: 'This That',
+          content: 'Hobby 1',
           height: 100,
           id: 'N2P2',
           left: 0,
-          name: 'Stuff',
+          name: 'Details',
           style: {
             color: DEFAULT_COLOR, fontSize: DEFAULT_SIZE,
             fontFamily: DEFAULT_FONT,
